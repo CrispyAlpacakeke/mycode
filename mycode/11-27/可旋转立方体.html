@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>可旋转立方体</title>
+    <style>
+    /* 公共样式 */
+    body{
+        background: rgb(54, 54, 56);
+    }
+    .face{
+        width: 200px;
+        height: 200px;
+        text-align: center;
+        line-height: 200px;
+        position: absolute;
+        top:50%;
+        left:50%;
+        font-size: 32px;
+        font-weight: 900;
+        color: white;
+        transform: translate(-50%,-50%);
+        transition: .5s;
+        transition: .5s cubic-bezier(0.65, 0.05, 0.36, 1);
+        /* backface-visibility: visible; */
+    }
+    /* 盒子样式 */
+    .box{
+        width: 400px;
+        height: 400px;
+        position: relative;
+        margin: 140px auto;
+        transform:rotateY(-45deg) rotateX(-45deg);
+        transform-style: preserve-3d;
+        transition: .5s cubic-bezier(0.65, 0.05, 0.36, 1);
+    }
+    .top{
+        z-index: 2;
+        background: rgb(255, 94, 94);
+        transform: translate(-50%,-50%) rotateX(90deg) translateZ(100px);
+    }
+    .bottom{
+        z-index: 3;
+        background: rgb(255, 210, 85);
+        transform: translate(-50%,-50%) rotateX(-90deg) translateZ(100px);
+    }
+    .front{
+        z-index: 4;
+        background: rgb(83, 255, 255);
+        transform: translate(-50%,-50%) translateZ(100px); 
+    }
+    .back{
+        z-index: 5;
+        background: rgb(82, 99, 255);
+        transform: translate(-50%,-50%) rotateY(180deg) translateZ(100px);
+    }
+    .left{
+        z-index: 6;
+        background: rgb(134, 82, 255);
+        transform: translate(-50%,-50%) rotateY(-90deg) translateZ(100px);
+    }
+    .right{
+        z-index: 7;
+        background: rgb(255, 69, 171);
+        transform:translate(-50%,-50%) rotateY(90deg) translateZ(100px);
+    }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="face top">top</div>
+        <div class="face bottom">bottom</div>
+        <div class="face front">front</div>
+        <div class="face back">back</div>
+        <div class="face left">left</div>
+        <div class="face right">right</div>
+    </div>
+    <script>
+    let box = document.querySelector('.box')
+    var x = 45;
+    var y = -45;
+    document.addEventListener('mousedown',function(e){
+        var e = e || event
+        var startX = e.clientX;
+        var startY = e.clientY;
+        document.addEventListener('mousemove',function(e){
+            var e = e || event
+            x += e.clientX - startX;
+            y += e.clientY - startY;
+            box.style.transform = `rotateX(${y}deg) rotateY(${x}deg)`
+        })
+    })
+    </script>
+</body>
+</html>

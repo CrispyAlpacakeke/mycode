@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+    (1) 使用For循环添加10个p标签到div中。【练习innerHTML】
+
+    思路：div是双标签，则应该在<div></div>之间放入10个<p>，因此要定义两个变量分别赋值为<div>以及</div>（或者无需定义，直接拼接）,
+    用for循环创建10个<p>，再与<div>和</div>拼接，最后将拼接结果装入一个变量中，用DOM的innerHTML操作将该变量放入body节点下。
+    需要注意的是，10个<p>也需要一个变量来装载
+
+ 
+    (2) 获取起点小说网/360图书馆不可复制页面的文字。【练习innerText】
+     
+    (3) 创建一个表单，表单中一个input,一个按钮，当用户在input中输入内容并且点击按钮后验证输入的值是否为hello,并弹框提示结果是否正确【练习获取input的value】
+    
+
+
+-->
+    <form action="">
+        <input type="text" placeholder="请输入hello" id='ipt'>
+        <button class="btn">确认</button>
+    </form>
+</body>
+<script>
+    // -----------------------------------------(1)----------------------------------------------
+    // 使用For循环添加10个p标签到div中。【练习innerHTML】
+    //获取body节点
+    // function addP(){
+    //     var body = document.body;
+    //     //创建<div>开始标签
+    //     // var divS = '<div>';
+    //     //创建<div>结束标签
+    //     // var divE = '</div>';
+    //     //声明放入10个P标签的变量allP并初始化（如果不初始化则第一个值为undefined）
+    //     var allP = '';
+    //     //for循环创建10个p标签，并放入allP中
+    //     for(var i=1;i<=10;i++){
+    //         var p = `<p>${i}</p>`
+    //         allP += p;
+    //     }
+    //     //定义变量html，拼接字符串（即为html部分的结构代码）
+    //     // var html = divS + divE + allP;
+    //     var html = `<div>${allP}</div>`;
+    //     //innerHTML操作放入body节点下
+    //     body.innerHTML = html;        
+    // }
+    // addP();
+
+    // -----------------------------------------(2)----------------------------------------------
+
+    // -----------------------------------------(3)----------------------------------------------
+    //创建一个表单，表单中一个input,一个按钮，当用户在input中输入内容并且点击按钮后验证输入的值是否为hello,并弹框提示结果是否正确【练习获取input的value】
+    var ipt = document.querySelector('#ipt');
+    var btn = document.querySelector('.btn');
+    var iptValue = ''
+    function getValue (){
+        iptValue = ipt.value;
+        return iptValue;
+    }
+    btn.addEventListener('click',function(){
+        // console.log('啊！被点击了！');
+        iptValue = getValue ();
+        console.log(iptValue);
+        if(iptValue === 'hello'){
+            alert('哇偶输入正确呢！');
+        }
+        else{
+            alert('天了噜输入的什么玩意儿！');
+        }        
+    })
+</script>
+</html>

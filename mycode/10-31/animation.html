@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* ------------------box1------------------ */
+        @keyframes round{
+            from{
+                transform:rotate(0deg);
+            }
+            to{
+                transform:rotate(360deg);
+            }
+        }
+        .box1{
+            width: 400px;
+            height: 400px;
+            /* border:2px solid black; */
+            margin: 50px auto;
+            position: relative;
+        }
+        .circle{
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            border:2px solid rgb(222, 231, 231);
+            position: relative;
+        }
+        .ball{
+            width: 50px;
+            height: 50px;
+            background: rgb(0, 195, 255);
+            border-radius: 50%;
+            position: absolute;
+            left:175px;
+            top:-25px;
+            /* 以该盒模型的左上角为原点 */
+            transform-origin: 25px 225px;
+            animation: round 2s cubic-bezier(0.65, 0.05, 0.36, 1) infinite normal both;
+        }
+        /* ---------------------box2------------------------ */
+        @keyframes loading{
+            from{
+                height: 0;
+                opacity: 0;
+            }
+            50%{
+                height: 100px;
+                opacity: 1;
+            }
+            to{
+                height: 0;
+                opacity: 0;
+            }
+        }
+        .box2{
+            width: 600px;
+            height: 200px;
+            background: #333;
+            margin: 280px auto;
+            padding: 40px 0;
+        }
+        .box2 .item-list{
+            width: 175px;
+            height: 100px;
+            /* background: khaki; */
+            position: relative;
+            margin: 0 auto;
+        }
+        .box2 .top .item{
+            width: 10px;
+            height: 140px;
+            position: absolute;
+            bottom: 0;
+            background: rgb(0, 121, 0);
+            animation: loading 2s cubic-bezier(0.65, 0.05, 0.36, 1) infinite;
+        }
+        .box2 .bottom .item{
+            width: 10px;
+            height: 140px;
+            position: absolute;
+            top: 0;
+            background: rgb(0, 121, 0);
+            animation: loading 2s cubic-bezier(0.65, 0.05, 0.36, 1) infinite;
+        } 
+        .box2 .item:nth-child(n+2){
+            left:15px;
+            animation-delay:.1s;
+        }
+        .box2 .item:nth-child(3){
+            left: 30px;
+            animation-delay: .2s;
+        }
+        .box2 .item:nth-child(4){
+            left: 45px;
+            animation-delay: .3s;
+        }      
+        .box2 .item:nth-child(5){
+            left: 60px;
+            animation-delay: .4s;
+        }       
+        .box2 .item:nth-child(6){
+            left: 75px;
+            animation-delay: .5s;
+        }          
+        .box2 .item:nth-child(7){
+            left: 90px;
+            animation-delay: .6s;
+        }          
+        .box2 .item:nth-child(8){
+            left: 105px;
+            animation-delay: .7s;
+        }  
+        .box2 .item:nth-child(9){
+            left: 120px;
+            animation-delay: .8s;
+        } 
+        .box2 .item:nth-child(10){
+            left: 135px;
+            animation-delay: .9s;
+        } 
+        .box2 .item:nth-child(11){
+            left: 150px;
+            animation-delay: 1.0s;
+        } 
+        .box2 .item:nth-child(12){
+            left: 165px;
+            animation-delay: 1.1s;
+        } 
+        /* ----------------------box3----------------------- */
+        .box3{
+            width: 400px;
+            height: 400px;
+            margin: 280px auto;
+            background: rgb(219, 219, 219);
+            position: relative;
+        }
+        /* 设置高度也能解决浮动塌陷问题 */
+        .ballList{
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+            height: 20px;
+        }
+        .smallball{
+            width: 20px;
+            height: 20px;
+            background: #333;
+            border-radius: 50%;
+            float: left;
+        }
+        .lineBall{
+            position: absolute;
+            transform-origin: 10px 0;
+        }
+        .lineBall.one{
+            left: 130px;
+            animation: swag1 2s cubic-bezier(0.65, 0.05, 0.36, 1) infinite;
+        }
+        .lineBall.two{
+            left: 250px;
+            animation: swag2 2s cubic-bezier(0.65, 0.05, 0.36, 1) infinite;
+        }
+        .line{
+            width: 1px;
+            height: 190px;
+            background: #333;
+            transform: translate(9.5px);
+        }
+        .lineBall .smallball{
+            float: none;
+        }
+        @keyframes swag1{
+            from{
+                transform: rotate(0deg);
+            }
+            25%{
+                transform: rotate(30deg);
+            }
+            50%{
+                transform: rotate(0deg);
+            }
+            100%{
+                transform: rotate(0deg);
+            }
+        }
+        @keyframes swag2{
+            from{
+                transform: rotate(0deg);
+            }
+
+            50%{
+                transform: rotate(0deg);
+            }            
+            75%{
+                transform: rotate(-30deg);
+            }
+            100%{
+                transform: rotate(0deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 旋转球 -->
+    <div class="box1">
+        <div class="circle">
+            <div class="ball"></div>
+        </div>
+    </div>
+    <!-- 跳动条 -->
+    <div class="box2">
+        <div class="item-list top">
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+        </div>
+        <div class="item-list bottom">
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+        </div>
+    </div>
+    <!-------摆锤-------->
+    <div class="box3">
+        <div class="lineBall one">
+            <div class="line"></div>
+            <div class="smallball"></div>
+        </div>
+        <div class="ballList">
+            <div class="smallball"></div>
+            <div class="smallball"></div>
+            <div class="smallball"></div>
+            <div class="smallball"></div>
+            <div class="smallball"></div>
+        </div>
+        <div class="lineBall two">
+            <div class="line"></div>
+            <div class="smallball"></div>
+        </div>
+    </div>
+</body>
+</html>

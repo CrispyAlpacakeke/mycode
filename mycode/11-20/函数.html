@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //函数定义 function关键字 | 声明变量
+    //a,b为形参，1、4为实参
+    //形参根据位置传参
+    //函数内部的变量无法访问，包括形参
+       function add(a,b){
+            console.log(a+b);
+            return a+b;
+       } 
+       add(1,4);
+       function a(){
+           var x=1;
+           console.log(x);
+           return x;
+       }
+    //--------设定函数默认值---------
+    function showInfo(info){
+        //ES5
+        info = info?info:'木有这个人惹'
+        console.log(info)
+    }
+    //ES6 将默认值直接赋值给形参
+    function showInfo2(info = '哎呀不是让你输入数字嘛'){
+        if(!isNaN(info)){
+            console.log(info);
+        }
+    }
+
+    //arguments对象 参数收集 不限制参数个数
+    function sum(){
+        var res = 0;
+        //arguments是类似数组，不能使用forEach，要转化为数组
+        for(var i=0;i<arguments.length;i++){
+            res += arguments[i];
+        }
+        return res;
+    }   
+    // 自己写个splice(arr,idx,count,...)
+    function mySplice(arr,idx,count){
+        for(var i=idx;i<idx+count;i++){
+            var res = ''
+            arr[i] = '' + arguments[i+3];
+        }
+        return arr;
+    }
+    var arr = [2,3,4,1,5]
+    console.log(mySplice(arr,0,2,'a','b'))
+    </script>
+    
+</body>
+</html>

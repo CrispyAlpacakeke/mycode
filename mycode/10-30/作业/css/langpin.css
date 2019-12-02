@@ -1,0 +1,132 @@
+/*------------------ 良品铺子1 -----------------*/
+.container{
+    width:1148px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.clearfix:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.item{
+    width: 25%;
+    height: 371px;
+    overflow: hidden;
+    float: left;
+}
+.item a{
+    text-decoration: none;
+    display: block;
+    position: relative;
+}
+.snack-img{
+    width: 287px;
+    height: 371px;
+    overflow: hidden;
+    position: relative;
+}
+.snack-img img{
+    width: 100%;
+    transition: all .5s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.item:hover img{
+    transform: scale(1.03);
+}
+.snack-txt{
+    height: 96px;
+    line-height: 128px;
+    transition: all .5s cubic-bezier(0.645, 0.045, 0.355, 1);
+    text-align: center;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin-bottom: -96px;
+    visibility: hidden; 
+}
+.snack-txt::before{
+    content: '';
+    background:url(../img/active_bg.png)  bottom right no-repeat;
+    height: 86px;
+    background-size:auto 100%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0; 
+    opacity: 0.7;  
+}
+.item:hover .snack-txt{
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(-100%);
+}
+.snack-txt span{
+    position: relative;
+    z-index: 1;
+    color: white;
+    letter-spacing: 0.2em;
+    font-size: 18px;
+}
+/*--------------------- 良品铺子2 ---------------------------*/
+.box{
+    width: 307px;
+    height: 428px;
+    background: #F2F2F2;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transition: .5s;
+    transform: translate(-50%,-50%);
+}
+.floor{
+    width: 307px;
+    height: 428px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    box-sizing: border-box;
+}
+.box-img{
+    height: 451px;
+    overflow: hidden;
+    opacity: 0;
+    transition: .5s;
+}
+.box-txt{
+    color: rgb(153, 149, 149);
+    transition: .5s;
+    padding: 40px 35px;
+}
+.box-txt h2{
+
+}
+.box-txt p:nth-child(1){
+    font-size: 24px;
+    font-weight: 900;
+    margin: 10px 0;
+}
+.box-txt p:nth-child(2){
+    font-size: 16px;
+    margin: 4px 0;
+}
+.box-txt p:nth-child(3){
+    font-size: 16px;
+    margin-top: 30px;
+}
+.box-txt p:nth-child(4){
+    font-size: 12px;
+    line-height: 24px;
+    text-align: justify;
+}
+.box:hover{
+    background: white;
+}
+.box:hover .box-img{
+    opacity: 1;
+}
+.box:hover .box-txt{
+    color: white;
+}

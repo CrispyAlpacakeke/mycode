@@ -1,0 +1,58 @@
+{
+  "id": "1495168",
+  "name": "xiaomi",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1336081",
+      "name": "Search",
+      "font_class": "Search",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    },
+    {
+      "icon_id": "6528214",
+      "name": "消息",
+      "font_class": "xiaoxi",
+      "unicode": "e67b",
+      "unicode_decimal": 59003
+    },
+    {
+      "icon_id": "6928827",
+      "name": "play",
+      "font_class": "bofanganniu",
+      "unicode": "e726",
+      "unicode_decimal": 59174
+    },
+    {
+      "icon_id": "8760184",
+      "name": "arrow-left",
+      "font_class": "arrow-left",
+      "unicode": "e64d",
+      "unicode_decimal": 58957
+    },
+    {
+      "icon_id": "8760186",
+      "name": "arrow-right",
+      "font_class": "arrow-right",
+      "unicode": "e64c",
+      "unicode_decimal": 58956
+    },
+    {
+      "icon_id": "11275196",
+      "name": "circle-arrow-right",
+      "font_class": "circle-arrow-right",
+      "unicode": "e8bb",
+      "unicode_decimal": 59579
+    },
+    {
+      "icon_id": "11474221",
+      "name": "cart-Empty",
+      "font_class": "cart-Empty",
+      "unicode": "e6ef",
+      "unicode_decimal": 59119
+    }
+  ]
+}

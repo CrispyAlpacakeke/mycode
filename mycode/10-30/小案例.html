@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>搜索输入框</title>
+    <link rel="stylesheet" href="./单车生活/css/font-awesome.min.css">
+    <!-- 
+        注意：
+        1、button定位时一定要以右边定位，因为button始终以top:10px,right:10px的值贴着右边移动，
+        如果用top:50%和right：50%定位，会导致Button和input过渡速度不一致，
+        并且不方便最终状态的定位
+        2、在输入框输入文字后，鼠标移开后字体不应该涉及到button的部分，设置padding即可解决，但注意左右padding加起来不要超过60px
+     -->
+    <style>
+        body{
+            background: #2F3640;
+        }
+        .search{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            position: absolute;
+        }
+        .search input{
+            background: #2F3640;
+            border: none;
+            outline: none;
+            border-radius: 30px;
+            width: 60px;
+            height: 60px;
+            color: white;
+            text-indent: 2em;
+            box-sizing: border-box;
+            padding: 0 50px 0 10px;
+            transition: all 0.6s cubic-bezier(0.47, 0.11, 0.39, 0.74);
+            box-shadow: 0px 14px 40px rgba(0,0,0,0.18),0px 4px 28px rgba(0,0,0,0.32);
+        }
+        .search button{
+            width: 40px;
+            height: 40px;
+            outline: none;
+            border:none;
+            border-radius: 50%;
+            position: absolute;
+            /* top:50%;
+            left: 50%; */
+            top:10px;
+            right: 10px;
+            /* transform: translate(-50%,-50%); */
+            color: rgb(255, 178, 78);
+            background: transparent;
+            transition: all 0.5s cubic-bezier(0.47, 0.11, 0.39, 0.74);
+            font-size: 24px;
+        }
+        .search:hover button{
+            background: white;
+            font-size: 16px;
+        }
+        .search:hover input{
+            width: 320px;
+        }
+    </style>
+</head>
+<body>
+    <div class="search">
+        <input type="text">
+        <button>
+            <i class="fa fa-search"></i>
+        </button>
+    </div>
+</body>
+</html>

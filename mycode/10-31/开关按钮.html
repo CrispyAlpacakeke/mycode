@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./btn.css">
+</head>
+<body>
+    <!-- 
+        思路：
+        1、点击后按钮开关，而<a>标签的伪类中没有选中状态，只有input标签的type值为
+            checkbox时，有:checked选择符表示选中状态
+        2、开关按钮的热区其实是整个按钮部分，无论是否点击圆，开关都会触发，因此要使用<label>
+            标签设置热区
+        3、总共有3个部分，input、div.circle、div.bg
+    -->
+    <!-- button1 -->
+    <label for="switch1" class="switch-btn1">
+        <input type="checkbox" id="switch1" class="click">
+        <div class="circle"></div>
+        <div class="btn-bg"></div>
+    </label>
+    <!-- button2 -->
+    <label for="switch2" class="switch-btn2">
+        <input type="checkbox" id="switch2" class="click2">
+        <div class="circle2"></div>
+        <div class="btn-bg2"></div>
+    </label> 
+</body>
+</html>

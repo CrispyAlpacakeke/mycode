@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 400px;
+            height: 300px;
+            background: rgb(223, 223, 223);
+            position: absolute;
+            top:50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        .line{
+            width: 400px;
+            margin-top: 10px;
+            text-align: center;
+        }
+        .line label{
+            display: inline-block;
+            text-align: right;
+            width: 100px;
+        }
+        input[type="text"]{
+            display: inline-block;
+            border: none;
+            width: 200px;
+            height: 40px;
+            padding-left: 8px;
+        }
+        input[type="submit"]{
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="line">
+            <label for="">请输入文字:</label>
+            <input type="text" id="zhengchang" placeholder="请输入文字">
+            <input type="submit" class="codeBtn" value="加密"></input>
+        </div>
+        <div class="line">
+            <label for="">加密密文:</label>
+            <input type="text" id="jiami" placeholder="文本加密">
+        </div>
+        <div class="line">
+            <label for="">解密密文:</label>
+            <input type="text" id="jiemi" placeholder="文本解密">
+            <input type="submit" class="uncodeBtn" value="解密"></input>
+        </div>
+    </div>
+    <script>
+    //3个input，第一个显示正常输入文字
+    //第二个显示加密后的文字
+    //第三个显示截解密后的文字
+    
+    var zc = document.getElementById('zhengchang')
+    var jiaM = document.getElementById('jiami')
+    var jieM = document.getElementById('jiemi')
+    var codeBtn = document.querySelector('.codeBtn');
+    var uncodeBtn = document.querySelector('.uncodeBtn');       
+    codeBtn.addEventListener('click', function () {
+        var zcVal = zc.value;
+        var codeStr = '';
+        for(var i=0;i<zcVal.length;i++){
+            var unicode = zcVal[i].charCodeAt();
+            console.log(unicode);        
+            //加密算法
+            var codeUnic = unicode + 6;
+            //加密后的字符串
+            codeStr += String.fromCharCode(codeUnic);
+        }            
+        jiaM.value = codeStr;
+    })
+    uncodeBtn.addEventListener('click',function(){
+        var jiaVal = jiaM.value;
+        var codeStr = '';
+        for(var i=0;i<jiaVal.length;i++){
+            var unicode = jiaVal[i].charCodeAt();        
+            //解密算法
+            var uncodeUnic = unicode-6;
+            //解密后的字符串
+            codeStr += String.fromCharCode(uncodeUnic)
+        }
+        jieM.value = codeStr;
+    })
+    </script>
+</body>
+</html>

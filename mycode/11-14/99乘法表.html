@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 720px;
+            height: 360px;
+            padding: 10px;
+            background: rgb(250, 196, 204);
+            margin: 50px auto 0px;
+        }
+        .container .row{
+            height: 40px;
+            width: 720px;
+        }
+        .container .cell{
+            width: 80px;
+            height: 40px;
+            background: rgb(238, 113, 132);
+            color: white;
+            text-align: center;
+            line-height: 40px;
+            float: left;
+        }
+        .btn{
+            border:none;
+            background: rgb(238, 113, 132);
+            color: white;
+            width: 140px;
+            height: 54px;
+            font-size: 18px;
+            margin: 40px 0 0 668px;
+            box-shadow: 0 8px 24px rgba(238, 113, 132,.45);
+            cursor: pointer;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <button class="btn">99乘法表</button>
+    <div class="container">
+
+    </div>
+    <script>
+        var container = document.querySelector('.container');
+        var btn = document.querySelector('.btn');
+        var html = '';
+        for(var i=1;i<=9;i++){
+            var row = '';
+            for(var j=1;j<=i;j++){
+                cell = `<div class="cell">${i}x${j}=${j*i}</div>`
+                row += cell;
+            }
+            html += `<div class="row">${row}</div>`;
+        }
+        btn.addEventListener('click',function(){
+            container.innerHTML = html;
+        })
+    </script>
+</body>
+</html>

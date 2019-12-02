@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul class="list">
+        <li>list-1</li>
+        <li>list-2</li>
+        <li>list-3</li>
+        <li>list-4</li>
+        <li>list-5</li>
+    </ul>
+    <script>
+    //----------------创建数组------------------
+    //1、字面量
+    var arr = ['a','b','c'];
+    //2、对象构造
+    var arr2 = new Array();
+    // arr2[0] = 0;
+    // arr2[1] = 1;
+    // arr2[2] = 2;
+    // arr2[3] = 3;
+    // arr2[4] = 4;
+    // arr2[5] = 5;
+    arr2 = [1,2,3,4,5];
+    //数组长度为数组最后一个值的下标+1
+    //数组判断Array.isArray()
+
+    //----------------添加元素-------------------
+    //push() 末尾添加，返回长度，原数组改变
+    var b = arr2.push('a')
+    console.log(arr2,b);
+    //unshift() 开始添加，返回长度，原数组改变
+    var b = arr2.unshift('a')
+    console.log(arr2, b);
+
+    //----------------合并数组-------------------
+    //Array.prototype.push.apply(a, b) 只能合并两个，改变原数组，返回合并后的数组长度
+    //Array.prototype.属性方法  表示是数组实例的方法，比如concat()是Array.prototype.concat()，需要['a'].concat()使用
+    //Array.属性方法 表示构造函数的方法，如isArray()，必须写为Array.isArray()才有效
+    Array.prototype.push.apply(arr,arr2);
+    console.log(Array.prototype.push.apply(arr,arr2))
+    console.log(arr,arr2)
+    //a.concat(b) 合并多个数组，不改变原数组，返回合并后的数组
+    var arr3 = arr.concat(arr2);
+    console.log(arr3)
+    //[...[],...[]] ES6序列化合并数组与concat方法等效
+    var arr4 = [...arr3,...arr2,...arr];
+    console.log(arr4)
+
+    //----------------删除数组-------------------
+    //pop() 删除最后一个元素，返回删除的元素，原数组改变
+    var x = arr.pop();
+    console.log(arr,x);
+    //shift() 删除第一个一个元素，返回删除的元素，原数组改变
+    var x = arr.shift();
+    console.log(arr,x);
+    //splice(stratNum, deleteCount, items...) 范围删除，原数组改变，返回删除的元素（没有返回[]）
+    //stratNum 起始位置，包括该位置的元素（从1开始）
+    //deleteCount 删除的个数
+    //items 添加的元素
+    var heros = ["露娜", "上官婉儿", "李白", "嬴政", "貂蝉", "兰陵王", "亚瑟"];
+    var str2 = heros.splice(1,0,'局座');
+    
+    //----------------截取元素-------------------
+    //slice() 原数组不会改变，返回截取出的元素
+    var str3 = heros.slice(0,3)
+    console.log(str3,heros)
+
+    //------------将类似数组转换为真正的数组-------------
+    var lis = document.querySelectorAll('.list li');
+    lis = Array.prototype.slice.call(lis);
+    lis.push('<li></li>');
+    console.log(lis);
+
+    //------------查询数组元素-------------
+    //indexOf() 返回给定元素在数组中第一次出现的位置，不存在则返回'-1'
+    //lastIndexOf() 返回给定元素在数组中最后一次出现的位置，不存在则返回'-1'
+    //includes() 判断一个数组是否包含某个特定的值，包含则返回true，不包含则返回false
+    //find() 返回数组中满足测试函数条件的第一个元素的值，否则返回undefined（与filter()的区别是，filter是返回满足条件的所有元素）
+    //findIndex() 返回数组中满足测试函数条件的第一个元素的索引，否则返回-1
+    var arr3 = [1,2,3,2,5];
+    console.log(arr3.indexOf(2));
+    console.log(arr3.lastIndexOf(2));
+    console.log(arr3.includes(2));
+    var res = arr3.findIndex(function(item){
+        return item > 2;
+    })
+    console.log(res)
+    </script>
+</body>
+</html>

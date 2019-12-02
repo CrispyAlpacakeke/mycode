@@ -1,0 +1,86 @@
+/* hover之前 */
+.btn-list ul{
+    width: 320px;
+    height: 60px;
+    line-height: 60px;
+    list-style: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 0;
+}
+.btn-list ul::before{
+    content: '\f1e0';
+    width: 100%;
+    height: 100%;
+    font-family: fontAwesome;
+    background: linear-gradient(45deg,#ff00ff,#8a2be2);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-radius: 30px;
+    text-align: center;
+    color: white;
+    font-size: 22px;
+    z-index: 9;
+    transition: all .5s ease;
+}
+.btn-list ul li{
+    float: left;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 5px;
+    text-align: center;
+    line-height: 60px;
+    font-size: 22px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: all .5s ease;
+}
+.btn-list ul li a{
+    color: white;
+}
+.btn-list ul li:nth-child(1){
+    background-color: #3b5999;
+    
+}
+.btn-list ul li:nth-child(2){
+    background-color: #55ACEE;
+}
+.btn-list ul li:nth-child(3){
+    background-color: #DD4B39;
+}
+.btn-list ul li:nth-child(4){
+    background-color: #0077B5;
+}
+.btn-list ul li:nth-child(5){
+    background-color: #E4405F;
+    margin-right: 0;
+}
+/* hover之后 */
+ul:hover:before{
+    width: 60px;
+}
+ul:hover li:nth-child(1){
+    transform: translateX(65px) rotate(360deg);
+    transition-delay: .8s;
+}
+ul:hover li:nth-child(2){
+    transform: translateX(130px) rotate(360deg);
+    transition-delay: .6s;
+}
+ul:hover li:nth-child(3){
+    transform: translateX(195px) rotate(360deg);
+    transition-delay: .4s;
+}
+ul:hover li:nth-child(4){
+    transform: translateX(260px) rotate(360deg);
+    transition-delay: .2s;
+}
+ul:hover li:nth-child(5){
+    transform: translateX(325px) rotate(360deg);
+    transition-delay: 0;
+}

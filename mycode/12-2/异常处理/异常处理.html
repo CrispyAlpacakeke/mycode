@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //error对象
+    //主要用于封装三方库、插件
+    let str = 26;
+    if(typeof _str != 'string'){
+        throw new Error('_str必须是字符串类型！')
+    }
+    //如果代码出现异常，能够处理错误异常而不至于使程序崩溃
+    try {
+    alertt("Hello, World!");
+    } catch (err) {
+        // 捕捉异常
+        var des = "错误警告：" + err.message;
+        alert(des);
+    }finally{
+        console.log('你给我执行啊！为啥不执行！')
+    }
+    </script>
+</body>
+</html>

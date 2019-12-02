@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //#拓展 原始数据类型 & 引用类型
+    //Webstorage 不能直接存储对象类型的数据，需将对象类型的数据转换成JSON数据之后进行存储，读取的时候需进行解析
+    // 1. 存
+    sessionStorage.usr = JSON.stringify({
+        name: "木子李",
+        age: 31,
+        major: "软件技术"
+    });
+
+    // 2. 取
+    JSON.parse(sessionStorage.usr);
+
+    let per = {
+        name: "木子李",
+        age: 31,
+        major: "软件技术"
+    }
+    localStorage.setItem("user",JSON.stringify(per))
+    let obj = JSON.parse(localStorage.getItem("user"));
+    console.log(obj)
+    </script>
+</body>
+</html>

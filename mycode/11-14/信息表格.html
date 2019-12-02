@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table{
+            border:1px solid rgb(124, 124, 202);
+            width: 600px;
+            height: 260px;
+            text-align: center;
+            vertical-align: middle;
+        }
+        .row{
+            background:lightcyan;
+        }
+        td,th{
+            border:1px solid rgb(124, 124, 202);
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>学校</th>
+            <th>简介</th>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <script>
+        //获取tbody节点
+        var tbody = document.querySelector('tbody');
+        //定义tbody中的html代码并初始化
+        var html = '';
+        //定义信息对象集合
+        var users = [
+            {
+                name:'小1',
+                age:23,
+                school:'大机霸学院',
+                profile:'有1说1'
+            },
+            {
+                name:'小0',
+                age:18,
+                school:'小母零学院',
+                profile:'满地飘零'
+            },            
+            {
+                name:'小0.5',
+                age:26,
+                school:'三明治学院',
+                profile:'变形金刚'
+            }
+        ]
+        //声明变量row
+        var row = '';
+        //for循环创建每一行的内容
+        for(var i=0;i<users.length;i++){
+            //定义每一个人的信息
+            var user = users[i];
+            html = `<tr class="row">
+            <td>${user.name}</td>
+            <td>${user.age}</td>
+            <td>${user.school}</td>
+            <td>${user.profile}</td>
+            </tr>`
+            //将每一行加入到row中
+            row += html;
+        }
+        tbody.innerHTML = row
+    </script>
+</body>
+</html>

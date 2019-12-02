@@ -1,0 +1,21 @@
+table{
+    border-collapse: collapse;
+    width: 400px;
+    height: 340px;
+    text-align: center;
+    color:#333333;
+    table-layout: fixed;
+}
+td{
+    border: 1px solid #EBEBEB;
+    width: 120px;
+}
+.grey{
+    background: #F9F9F9;
+}
+.orange{
+    color: #FD9725;
+}
+.norange{
+    color:#333333;
+}

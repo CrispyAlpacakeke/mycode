@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./animate.css">
+    <style>
+    .box{
+        height: 700px;
+        background: lightcoral;
+        text-align: center;
+        margin-top: 50px;
+        line-height: 700px;
+    }
+    img{
+        width: 200px;
+    }
+    .myanimate{
+        animation-play-state: paused;
+    }
+    .run{
+        animation-play-state: running !important;
+    }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="box">
+        <img src="./img/a2.jpg" alt="" class="myanimate animated fadeInRight">
+    </div>
+    <div class="box">
+        <img src="./img/a9.jpg" alt="" class="myanimate animated fadeInLeft">
+    </div>
+    <script>
+        var box = document.querySelector('.box');
+        var animateEle =document.querySelectorAll('.myanimate')
+        var animateDistance = 100
+        window.onscroll = function(e){
+            animateEle.forEach(function(el){
+                console.log(el.offsetTop - scrollY  )
+                if ((innerHeight - (el.offsetTop - scrollY) - el.offsetHeight) >= animateDistance) {
+                    el.classList.add('run')
+                }
+                else{el.classList.remove('run')}
+            })            
+        }            
+    </script>
+</body>
+</html>

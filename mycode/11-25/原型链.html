@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>原型链</title>
+</head>
+<body>
+    <script>
+    function Person(){
+        this.name = 'Riri';
+        this.sayName = function(){
+            console.log(`我叫${this.name}`)
+        }
+    }
+    Person.prototype.name = 'Weeknd';
+    Person.prototype.age = 23;
+    Person.prototype.job = "malong";
+    var p1 = new Person()
+    var p2 = new Person()
+    
+    </script>
+</body>
+</html>

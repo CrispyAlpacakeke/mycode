@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background: rgb(250, 200, 200);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    </div>
+</body>
+<script>
+    var container = document.querySelector('.container');
+    var box = document.createElement('div');
+    container.append(box);
+    box.className = 'box';
+    // box.textContent = '这是一个盒子';
+    // var a = document.createElement('a');
+    var a = "<a href= 'http://www.baidu.com'>百度一下</a>";
+    box.innerHTML = a;
+    // a.textContent = '百度一下'   
+</script>
+</html>

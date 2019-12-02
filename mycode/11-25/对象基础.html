@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>对象</title>
+</head>
+<body>
+    <script>
+    /*----------------创建对象-----------------*/
+    let obj = new Object();
+    // let obj = {}
+    //属性
+    obj.name = 'haha'
+    //增加方法
+    obj.say = function(){
+        console.log('DJ drop the beat!')
+    }
+    function hi(){
+        console.log('hi')
+        return 'hello'
+    }
+    //不要加上括号，括号表示函数被调用返回运行结果
+    obj.sayHi = hi;
+
+    //1、构造函数（重点方法）
+    //特点：
+    //函数名首字母大写
+    //函数体内部有this，this只即将要创建对象的实例
+    //使用new关键字命令调用生成对象
+    //优势：
+    function Person(name,age){
+        this.name = name;
+        this.age = age;
+        this.hello = function(){
+            console.log('hello')
+        }
+        this.grade = 8;
+    }
+    let Kiki = new Person("Kiki",12);
+    let Tom = new Person('Tom',34);
+    let Jerry = new Person('Jerry',32);
+
+    //2、字面量(普通方法)
+    let person_4 = {
+        name : 'Riri',
+        age : 12,
+        hello : function(){
+            console.log('hello')
+        }
+    }
+
+    //3、工程模式
+    //缺陷：脱离原型对象
+    function createPerson(name, age) {
+        var obj = new Object();
+        obj.name = name;
+        obj.age  = age;
+        obj.showName = function() {
+            console.log(obj.name);
+        }
+        return obj;
+    }
+    let Justin = new createPerson('Justin',25) 
+
+    //4、原型模式
+    //Person.prototype是一个对象，这个对象的所有实例和方法都能被构造函数Person的实例继承
+    //直接定义prototype属性
+    function Person1(){
+        Person1.prototype.name = 'Drake',   
+        Person1.prototype.song = function(){
+            console.log('kiki do you love me')
+        }
+    }
+    let p = new Person1();
+    let p1 = new Person1();
+
+    //字面量形式定义
+    function Person2(){
+       
+    }
+    Person2.prototype = {
+        name:'Riri',
+        song:function(){
+            console.log('Fresh out the runway')
+        }       
+    }
+    let p2 = new Person2()
+
+    //5、混合模式（构造+原型）
+    function Person3(name){
+        this.name = name,   
+        Person1.prototype.song = function(){
+            console.log('kiki do you love me')
+        }
+    }
+    let p3 = new Person1('Riri');
+    let p4 = new Person1('Drake');
+
+    /*----------------对象的基本操作-----------------*/
+    let actress = {
+        name:'杨幂',
+        skill:'通稿艳压',
+        hobby:'整容',
+        friends:'大宝贝'
+    }
+    //增
+    actress.work = '撩汉'
+    //修改
+    actress.skill = '驼背'
+    //删除
+    //1、delete  2、值为null
+    delete actress.hobby;
+    // actress.hobby = null;
+    //访问对象属性的方法：
+    //点语法：object.name
+    //下标法：object[name]------->比如某个对象：
+    let arr = {
+        0:'a',
+        1:'b',
+        2:'c'
+    }
+    console.log(Array.isArray(arr))
+    //用下标法访问arr[0],类似于数组，但arr不属于数组，必须通过构造函数方式创建，继承Array对象，该对象实例才是数组
+    let arr1 = new Array('a','b','c')
+    console.log(Array.isArray(arr1))
+    //但是当键（name）为变量时，只能使用下标法
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    function Designers(desigData){
+        for(key in desigData){
+            this[key] = desigData[key];
+        }
+    }
+    var zuoyiData = {
+        name :'左一',
+        property:'帅气',
+        level:'非凡',
+        country:'苹果联邦'
+    }
+    var luoangData = {
+        name :'洛昂',
+        property:'典雅',
+        level:'闪耀',
+        country:'莉莉丝'
+    }
+    let zuoyi = new Designers(zuoyiData);
+    let luoang = new Designers(luoangData);
+    </script>
+</body>
+</html>

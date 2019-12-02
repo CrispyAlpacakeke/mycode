@@ -1,0 +1,39 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.all{
+    background: rgb(223, 221, 221);
+    border: 1px solid grey;
+    text-align: center;
+    width: 100%;
+}
+.header,.footer{
+    height: 6em;
+    line-height: 6em;
+}
+.banner{
+    height: 15em;
+    line-height: 15em;
+    border-top-width:0px;
+}
+.main{
+    width: 88% ;
+    /* height: 46em; */
+    margin: 1em auto;
+    padding: 2em;
+}
+
+.section{
+    background: rgb(112, 109, 109);
+    border: 1px solid rgb(83, 81, 81);
+    width: 92%;
+    height: 18em;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 18em;
+    color: white;
+    margin-top: 2em;
+}
+.footer{
+}

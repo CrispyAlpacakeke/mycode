@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table{
+            border-collapse: collapse;
+            background: rgb(223, 255, 176);
+            margin: 0;
+            width: 600px;
+            margin: 0 auto;
+            margin-top: 20px;
+        }        
+        .wrapper{
+            width: 760px;
+            background: rgb(243, 243, 243);
+            /* padding-top: 20px; */
+            overflow: hidden;
+        }
+        table td{
+            border: 1px solid greenyellow;
+        }
+        .textBg{
+            padding: 12px 32px;
+            text-align: center;
+            font-size: 14px;
+            font-weight:600;
+        }
+        select,textarea,input{
+            width: 100%;
+            box-sizing: border-box;
+        }
+        button{
+            width: 96px;
+            height: 28px;
+            background: rgb(99, 170, 27);
+            color: white;
+        }
+
+        .btnBox{
+            background: rgb(206, 206, 206);
+            text-align: right;
+            padding: 10px;
+            margin-top: 20px;
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- 4列7行 -->
+    <form action="">
+        <div class="wrapper">
+            
+                <table>
+                    <!-- row1 -->
+                    <tr>
+                        <td class="textBg">姓&emsp;&emsp;名</td>
+                        <td>
+                            <input type="text" name="userName" id="">
+                        </td>
+                        <td class="textBg">性&emsp;&emsp;别</td>
+                        <td>
+                            <select name="sex" id="">
+                                <option value="">男</option>
+                                <option value="">女</option>
+                                <option value="">未知</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <!-- row2 -->
+                    <tr>
+                        <td class="textBg">手机号码</td>
+                        <td>
+                            <input type="text" name="" id="">
+                        </td>
+                        <td class="textBg">电子邮箱</td>
+                        <td>
+                            <input type="email" name="" id="">
+                        </td>
+                    </tr>
+                    <!-- row3 -->
+                    <tr>
+                        <td class="textBg">教育程度</td>
+                        <td>
+                            <input type="text" name="" id="">
+                        </td>
+                        <td class="textBg">工作职位</td>
+                        <td>
+                            <input type="text" name="" id="">
+                        </td>
+                    </tr>
+                    <!-- row4 -->
+                    <tr>
+                        <td class="textBg">工作城市</td>
+                        <td>
+                            <input type="text" name="" id="">
+                        </td>
+                        <td class="textBg">期望工资</td>
+                        <td>
+                            <input type="text" name="" id="">
+                        </td>
+                    </tr>
+                    <!-- row5 -->
+                    <tr>
+                        <td class="textBg">自我介绍</td>
+                        <td colspan="3">
+                            <textarea name="" id="" cols="57" rows="1"></textarea>
+                        </td>
+                    </tr>
+                    <!-- row6 -->
+                    <tr>
+                        <td class="textBg">特&emsp;&emsp;长</td>
+                        <td colspan="3">
+                            <textarea name="" id="" cols="57" rows="1"></textarea>
+                        </td>
+                    </tr>
+                    <!-- row7 -->
+                    <tr>
+                        <td class="textBg">地&emsp;&emsp;址</td>
+                        <td colspan="3">
+                            <textarea name="" id="" cols="57" rows="1"></textarea>
+                        </td>
+                    </tr>
+                </table>
+          
+            <div class="btnBox">
+                <button>添加</button>
+                <button>删除</button>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

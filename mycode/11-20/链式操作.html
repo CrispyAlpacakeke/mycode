@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //要具有返回值才能进行链式操作
+    //并且上一个函数的返回值类型是下一个函数能够接收的类型
+    function add(a,b){
+        return `${a}+${b}`;
+    }
+    var res = add(1,2).toString(2);
+    console.log(res);
+    </script>
+</body>
+</html>

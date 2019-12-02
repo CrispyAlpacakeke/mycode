@@ -1,0 +1,59 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.box{
+    width: 538px;
+    height: 265px;
+    box-sizing: border-box;
+    outline: none;
+    box-shadow: 0 0 3px 0 rgba(0,0,0,.3);
+    overflow: hidden;
+    padding: 10px 12px;
+    margin: 30px auto;
+}
+.cal-screen{
+    width: 494px;
+    height: 55px;
+    text-align: right;
+    background: #fcfdff;
+    color: #333;
+    padding: 0 10px;
+}
+.cal-screen .cal-process{
+    height: 24px;
+    line-height: 24px;
+    font-size: 13px;
+}
+.cal-screen .cal-result{
+    height: 31px;
+    line-height: 31px;
+    font-size: 26px;
+}
+.cal-keyboard{
+    width: 514px;
+    height: 190px;
+}
+.cal-line{
+    width: 514px;
+    height: 38px;
+    line-height: 38px;
+    text-align: center;
+}
+.cal-keyboard .cal-cell{
+    float: left;
+    width: 25%;
+    height: 38px;
+    border-right: 1px solid #ebebeb;
+    border-top: 1px solid #ebebeb;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+.cal-line .cal-cell:last-child{
+    border-right: none;
+}
+.bg-pale{
+    background: #f9f9f9;
+}
+.color-orange{
+    color: #f60;
+}

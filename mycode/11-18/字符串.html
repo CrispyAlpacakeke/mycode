@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<!-- 1."HTML,CSS,JavaScript,jQuery";转换成数组
+2.['189','1234','1234'] 189-1234-1234 -->
+<script>
+    var str1 = "HTML,CSS,JavaScript,jQuery";
+    //只有伟大的英文逗号才可以分割为几个数组哦
+    var arr1 = str1.split(',');
+    console.log(arr1);
+    var arr2 = ['189','1234','1234'];
+    var str2 = arr2.join('-');
+    console.log(str2);
+    console.log('朋友跟我左边一起\n换个行');
+    console.log('---------\t---------\n|\t\t\t\t\t|\n|\t\t\t\t\t|\n|\t\t\t\t\t|\n|\t\t\t\t\t|\n|\t\t\t\t\t|\n|\t\t\t\t\t|\n');
+    var str3 = '心里的花我想要带你回家在那深夜酒吧那个管他是真是假'
+    for(var i=0;i<str3.length;i++){
+        console.log(str3[i]);
+    }
+    for(var i=0;i<str3.length;i+=2){
+        if(i==str3.length-1){
+            console.log(str3[i]);
+        }
+        else console.log(str3[i] + str3[i+1]);
+        
+    }
+    //通过转义符把有意义的字符串转为普通字符串
+    var str4 = "\\n表示换行"
+    //中文编码 gb2312 GBK 
+    //unicode万国码，跨平台跨语言
+    //i 0 2 4 6 8 
+    //str.length-1 = 8 , 一共9个字符
+    //i = 8 ,str[i+1]则不打印
+    //str.length-1 = 9 ,一共10个字符
+    //i 不可能等于奇数，str[i+1]就是最后一个数
+    //i == str.length -1 时表示，字符个数为奇数
+    var s = '哈'
+    // var numCode = s.charCodeAt(0);
+    var res = '\\u'+s.charCodeAt(0).toString(16);
+    console.log(res);
+    // oriStr = String.fromCharCode(numCode);
+
+    //随机输出四个字母作为验证码
+    //tips:根据ASCII码范围，进行随机
+    //大写字母范围65-90，小写字母范围97-122，0-9数字范围48-57
+    //把随机数转换为字符串，通过循环拼接字符串
+    function randomNum(a,b){
+        return Math.round(Math.random()*(b-a))+a;
+    }
+    function yanzhenma(){
+        var yzm = '';
+        console.log(yzm);
+        for(var i=0;i<4;i++){
+            //大小写总共52个字母,0-9有10个数字
+            var n = randomNum(1,62);
+            var oriStr = '';
+            var numCode;
+            //1<=n<=26时，65<=n+64<=90
+            if(n<=26){
+                numCode = n+64;
+            }
+            if(n>=27 && n<=52){
+                numCode = n+70;
+            }
+            //53<=n<=62
+            else{
+                numCode = n-5;
+            }
+            yzm += String.fromCharCode(numCode);
+        }
+        console.log('验证码：'+yzm); 
+    }
+    yanzhenma();
+</script>
+</body>
+</html>

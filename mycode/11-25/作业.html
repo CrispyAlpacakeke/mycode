@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //  1.分别用原始模式，工厂模式，构造函数模式创建一个盒子对象。要求如下
+    // (1)对象有以下属性：宽度(数字类型，默认单位为cm)，高度(同宽度)，背景颜色，位置。长度单位可选mm（毫米）,cm(厘米)，dm(分米),m(米)
+    // (2)盒子对象的宽度，高度可设置带长度单位的字符串，对象会自动转换成cm。如:设置box.width='1.2m'，
+    //    获取box.width返回不带单位的数字120，也可直接设置数字。提示Object.defineproperties，
+    //    查询文档或者上课案例。
+    // (3)有方法getSize()获取盒子大小。返回数字，默认平方厘米。
+
+    //原始模式
+    // var box = {
+    //     width:100,
+    //     height:100,
+    //     bgColor:"red",
+    //     position:"center",
+    //     lenUnit:['mm','cm','dm','m']
+    // }
+    //工厂模式    
+    // var boxData = {
+    //     width:'100dm',
+    //     height:'100dm',
+    //     bgColor:"red",
+    //     position:"center",
+    // }
+    // function createBox(boxData){
+    //     var box = new Object();
+    //     for(key in boxData){
+    //         box[key] = boxData[key];
+    //     }
+    //     return box;
+    // }
+    // var box1 = createBox(boxData);
+    //构造函数模式
+    function Box(boxData){
+        for(key in boxData){
+            this[key] = boxData[key];
+        }
+        this._width = boxData.width;
+        function alertUnit(value){
+            if (isNaN(value)) {
+                if (value.indexOf('mm') != -1) {
+                    value = Number(value.replace('mm', '')) * 10;
+                }
+                else if (value.indexOf('dm') != -1) {
+                    value = Number(value.replace('dm', '')) / 10;
+                }
+                else if (value.indexOf('m') != -1) {
+                    value = Number(value.replace('m', '')) / 100;
+                }
+            }
+            return value;
+        }
+        Object.defineProperties(this,{
+            width:{
+                get:function(){
+                    console.log(`${alertUnit(this._width)}cm`);
+                    return alertUnit(this._width);
+                },
+                set:function(value){
+                    this._width = alertUnit(value);
+                    console.log(`${this._width}cm`);
+                    return this._width
+                }
+            }
+        })    
+    }
+    Box.prototype.getSize = function(){
+        var area = this.width**2;
+        return area+'cm^2';
+    }
+    var boxData = {
+        width:'100dm',
+        height:'100dm',
+        bgColor:"red",
+        position:"center",
+    }
+    let box1 = new Box(boxData); 
+
+
+    // 2.给所有字符串添加一个方法replaceAll方法的，实现一下功能。'abcaba'.replaceAll('a','x')，替换所有的字母a为z，返回结果为'xbcxbx'。
+    var str = 'ghghyuh';
+    String.prototype.replaceAll = function(a,b){
+        var str = this;
+        for(var i=0;i<str.length;i++){
+            if(str[i] == a){
+                str = str.replace(a,b);   
+                i -=1;               
+            }
+        }
+        return str;
+    }
+    str.replaceAll('h','k');
+
+    // 3.给数组添加一个方法max可以返回数组的最大值，且不改变原数组
+    var arr = [4,6,2,7,8,1]
+    Array.prototype.max = function(){
+        let tempArr = this.concat();
+        for(var i=0;i<tempArr.length;i++){
+            let t;
+            if(tempArr[i] > tempArr[i+1]){
+                t = tempArr[i];
+                tempArr[i] = tempArr[i+1];
+                tempArr[i+1] = t;
+            }
+        }
+        return tempArr[tempArr.length-1];
+    }
+    console.log(arr.max());
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .father{
+            text-indent: 2em;
+            border: 1px solid red;
+            width: 100px;
+            height: 300px;
+        }
+        .son{
+            width: inherit;
+            height: inherit;
+            border: inherit;
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        继承（inheritance）是CSS里一个很重要的概念。当你为某个元素应用CSS属性时，这些属性不仅会影响该元素，还会影响其下的分支元素即后代元素。也就是说，这些下层的元素继承了其祖先元素的属性。只不过，它们继承的可不是冷冰冰的钞票，而是颜色、字体大小这样的东西。
+        <div class="son">
+            爸爸妈妈去上班，我去幼儿园！
+            我的好爸爸，下班回到家~
+            我是你爸爸真伟大，养你这么大，你还不听话，一天到晚去玩耍，滚吧滚吧滚吧
+        </div>
+        <p>我要继承！我要继承！</p>
+    </div>
+</body>
+</html>

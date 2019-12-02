@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* ----------第一题---------- */
+        table,td,th{
+            border: 1px solid rgb(123, 133, 139);
+            border-collapse: collapse;
+        }
+        table{
+            width: 720px;
+            height: 480px;
+            text-align: center;
+            color: rgb(53, 59, 63);
+        }
+        tbody tr{
+            cursor: pointer;
+            font-size: 14px;
+        }
+        thead{
+            line-height: 40px;
+            color: rgb(88, 119, 175);
+        }
+        tbody tr:nth-child(even){
+            background: #EEEEEE;
+        }
+        tbody tr:nth-child(odd){
+            background: rgb(177, 186, 190);
+        }
+        table td:first-child{
+            width: 56px;
+        }
+        .highlight{
+            background: rgb(255, 230, 0)!important;
+        }
+        /* ---------第三题----------*/
+        ul,li{
+            list-style: none;
+        }
+        .menuList{
+            width: 720px;
+            height: 60px;
+            padding: 0;
+        }
+        .menuList li{
+            width: 180px;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            background: #333;
+            transition: all .2s;
+        }
+        .menuItem{
+            float: left;
+            margin: 0;
+            position: relative;
+        }
+        .menuList li a{
+            text-decoration: none;
+            padding: 20px 30px;
+            color: rgb(235, 235, 235);
+        }
+        .menuList li:hover{
+            background: chocolate;
+        }
+        .menuList li:hover a{
+            color: white;
+        }
+        .submenu{
+            position: absolute;
+            top: 60px;
+            left: 0px;
+            display: none;
+            padding: 0 ;
+        }
+        .submenu li{
+            background: #666;
+        }
+    </style>
+</head>
+<body>
+    <!-- 第一题 -->
+    <table>
+        <thead>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>PHONE</th>
+            <th>EMAIL</th>
+            <th>AGE</th>
+            <th>COMPANYID</th>
+        </thead>
+        <tbody>
+            
+        </tbody>
+    </table>
+    <!-- 第三题 -->
+    <div class="menu">
+        <ul class="menuList">
+        </ul>
+    </div>
+    <script>
+        // 第一题
+        function createTable(){
+            var arrayData = [
+                {
+                    "id": 1,
+                    "name": "钱秀英",
+                    "phone": "16153658896",
+                    "email": "i.swoqfifm@hcpydc.tk",
+                    "age": 26,
+                    "companyId": 4
+                },
+                {
+                    "id": 2,
+                    "name": "汤刚",
+                    "phone": "18686238114",
+                    "email": "v.wdprtl@vkiply.md",
+                    "age": 44,
+                    "companyId": 4
+                },
+                {
+                    "id": 3,
+                    "name": "薛芳",
+                    "phone": "16128785652",
+                    "email": "c.gjt@xjcvwue.mn",
+                    "age": 33,
+                    "companyId": 4
+                },
+                {
+                    "id": 4,
+                    "name": "魏娜",
+                    "phone": "18782160773",
+                    "email": "k.yncvnd@tblulhs.sr",
+                    "age": 40,
+                    "companyId": 4
+                },
+                {
+                    "id": 5,
+                    "name": "贺强",
+                    "phone": "17527781553",
+                    "email": "r.lgcgl@kyuskxku.fr",
+                    "age": 38,
+                    "companyId": 8
+                },
+                {
+                    "id": 6,
+                    "name": "郑丽",
+                    "phone": "15764758850",
+                    "email": "v.hpf@ytawhuhz.ev",
+                    "age": 22,
+                    "companyId": 4
+                },
+                {
+                    "id": 7,
+                    "name": "梁超",
+                    "phone": "15793616023",
+                    "email": "c.pdqwc@cgsneeji.nr",
+                    "age": 40,
+                    "companyId": 6
+                },
+                {
+                    "id": 8,
+                    "name": "袁秀英",
+                    "phone": "18388787880",
+                    "email": "g.rac@lrjcnr.at",
+                    "age": 25,
+                    "companyId": 3
+                }
+            ]
+            var tbody = document.querySelector('tbody'); 
+            var html = '';
+            for(var item of arrayData){
+                //奇数偶数行的背景颜色样式通过css的nth-child()选择器设置，不在js中添加更为简洁
+                var row = `            
+                    <tr>
+                        <td>${item.id}</td>
+                        <td>${item.name}</td>
+                        <td>${item.phone}</td>
+                        <td>${item.email}</td>
+                        <td>${item.age}</td>
+                        <td>${item.companyId}</td>
+                    </tr>`
+                html += row;
+            }
+            tbody.innerHTML = html;
+            var tr = document.querySelectorAll('tbody tr');
+            console.log(tr,typeof tr);
+            for(var i=0;i<tr.length;i++){
+                var curTr = tr[i];
+                curTr.addEventListener('mouseover',function(){
+                    this.classList.add('highlight');
+                })
+                curTr.addEventListener('mouseout',function(){
+                    this.classList.remove('highlight');
+                })
+            }            
+        }
+        createTable();
+        // 第三题
+        var menuData = [
+            {
+                name: "主页",
+                link: '/home'
+            },
+            {
+                name: "产品中心",
+                link: "/product",
+                submenu: [
+                    {
+                        name: "电脑",
+                        link: '/computer'
+                    },
+                    {
+                        name: "手机",
+                        link: '/phone'
+                    },
+                    {
+                        name: "家电",
+                        link: '/jiadian'
+                    }
+                ]
+            },
+            {
+                name: "关于我们",
+                link: '/about'
+            },
+            {
+                name: "联系我们",
+                link: '/contact',
+                submenu: [
+                    {
+                        name: "电话",
+                        link: '/contact/p'
+                    },
+                    {
+                        name: "邮箱",
+                        link: '/contact/e'
+                    },
+                    {
+                        name: "微信",
+                        link: '/contact/we'
+                    },
+                ]
+            }
+        ]  
+        var menuLis = document.querySelector('.menu .menuList');
+        function createMenu(){
+            var html ='';
+            for(var item of menuData){
+                //声明一个存放二级菜单的空字符串，如果不初始化为空字符串，则!item.submenu时，subHtml为undefined
+                var subHtml = '';
+                if (item.submenu) {
+                    for (var sunItm of item.submenu) {
+                        //生成单个二级菜单选项
+                        var subItem = `<li class="subItem"><a href="${sunItm.link}">${sunItm.name}</a></li>`
+                        //将单个二级菜单选项拼接到subHtml
+                        subHtml += subItem;
+                    }
+                    //用ul包裹二级菜单的li集合，否则和一级菜单拼接后会变为同级li
+                    subHtml = `<ul class = "submenu">` + subHtml+ `</ul>`;
+                }
+                //一级菜单模板
+                var menuHtml = `
+                        <li class="menuItem">
+                            <a href="${item.link}">${item.name}</a>
+                            ${subHtml}
+                        </li>
+                        `  
+                //将单个一级菜单拼接到html形成一级菜单集合
+                html += menuHtml;
+            }
+            menuLis.innerHTML = html;
+        }
+        createMenu();
+        var menuItm = menuLis.querySelectorAll('.menuItem');
+        for (var i = 0; i < menuItm.length; i++) {
+            var curItm = menuItm[i];
+            curItm.addEventListener('mouseover', function () {
+                this.querySelector('.submenu').style.display = 'block';
+            })
+            curItm.addEventListener('mouseout', function () {
+                this.querySelector('.submenu').style.display = 'none';
+            })
+        }
+    </script>
+</body>
+</html>

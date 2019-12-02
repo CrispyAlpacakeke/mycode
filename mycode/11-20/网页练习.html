@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body *{
+            margin: 0;
+            padding: 0;
+        }
+        .play{
+            border: 1px solid #aaa;
+            width: 200px;
+            margin: 20px auto;
+        }
+        h3,.play-list a{
+            width: 200px;
+            height: 30px;
+            line-height: 30px;
+            box-sizing: border-box;
+        }
+        h3{
+            color: #57646E;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 400;
+            background: #ced3d7;
+            width: 200px;
+            height: 30px;
+            line-height: 30px;
+            box-sizing: border-box;
+            border: 1px solid #e9edf2;
+            padding-left: 12px;
+        }
+        .play-list{
+            list-style: none;
+            display: none;
+            transition: display .2s;
+        }
+        .play-list a{
+            text-decoration: none;
+            color: #6b7980;
+            font-size: 12px;
+            background: #e9edf2;
+            display: block;
+            padding: 0 12px;
+        }
+        .play-list a:hover{
+            background: white;
+        }
+        .show{
+            display: block !important;
+        }
+    </style>
+</head>
+<body>
+<!-- 网页练习，完成以下网页
+http://www.fgm.cc/learn/lesson1/01.html
+http://www.fgm.cc/learn/lesson2/09.html  -->
+    <div class="play">
+        <h3>播放列表...</h3>   
+        <ul class="play-list">
+            <li><a href="">玩家之徒 - 蔡依林</a></li>
+            <li><a href="">原谅我就是这样的女生 - 戴佩妮</a></li>
+            <li><a href="">猜不透 - 丁当</a></li>
+            <li><a href="">自导自演 - 周杰伦</a></li>
+            <li><a href="">浪漫窝 - 弦子</a></li>
+            <li><a href="">流年 - 王菲</a></li>
+        </ul>
+    </div>
+    <script>
+        var playList = document.querySelector('.play-list');
+        var btn = document.querySelector('h3');
+        btn.onclick = function(){
+            if(playList.classList.contains('show')){
+                playList.classList.remove('show');
+            }
+            else playList.classList.add('show');
+        }
+    </script>
+</body>
+</html>

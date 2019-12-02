@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //1. 定义一个数组，随机获取20个0~100的整数，要求如下（结果要取四舍五入）：
+    // - 计算最大值、最小值
+    // - 计算数组元素之和、平均值
+    // - 将数组元素和平均值的差值组成一个新的数组并按升序排序
+    // > 提示：
+    // - Math.random()：获取0~1的随机数
+    // - Math.round() ：四舍五入
+    var arr = [];
+    var sum = 0;
+    var average = 0;
+    for(var i=0;i<20;i++){
+        arr[i] = Math.round(Math.random()*100);
+        sum +=arr[i];
+    }
+    average = sum / 20;
+    arr.sort(function(a,b){
+        return a-b;
+    })
+    var newArr = []
+    newArr = arr.map(function(el){
+        return el - average;
+    });
+    console.log(newArr)
+    var max = arr[19];
+    var min = arr[0];
+    console.log(`最大值为${max}最小值为${min}元素之和为${sum}平均值为${average}`)
+
+    // 2. 随机输入一个数组，数组元素是数字或者字符串，除该数组中重复的元素。
+    
+
+    // 3. users = [
+    //             {name:'马云',id:1,age:55},
+    //             {name:'马华腾',id:2,age:56},
+    //             {name:'李彦宏',id:3,age:53},
+    //             {name:'王尼马',id:4,age:35},
+    //             {name:'雷军',id:6,age:50},
+    //             {name:'李雷',id:7,age:26},
+    //         ]
+    // 要求：
+    // - 1.按照姓名拼音降序排列所有用户。
+    // - 2.筛选出年龄大于等于50岁的所有用户，放入一个新数组。
+    // - 3.计算所用用户的年龄平均值。
+    // - 4.筛选出所有姓马的用户，放入一个新数组。
+    // - 5.给每个用户的年龄都减5。
+    // - 6.统计所用户的姓出现的数量。如本案例结果应该为{'马'：2,'李':2，'王':1,'雷':1}
+
+    </script>
+</body>
+</html>

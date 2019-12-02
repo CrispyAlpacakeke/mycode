@@ -1,0 +1,55 @@
+form{
+    text-align: center;
+}
+p{
+    color:#EC6015;
+    font-size:18px;
+    margin-bottom: 28px;
+}
+div{
+    margin: 24px;
+}
+label{
+    display: inline-block;
+    width: 102px;
+    text-align: right;
+    font-size: 14px;
+}
+#userName,#psd,#num,#code{
+    height: 24px;
+    width: 216px;
+    text-indent: 0.5em;
+}
+#code{
+    width: 134px;
+}
+.toleft{
+    position: relative;
+    left: -16px;
+}
+img{
+    height: 30px;
+    vertical-align: middle;
+}
+span{
+    font-size:12px;
+    color:  #A6B0C2;
+}
+a{
+    text-decoration: none;
+}
+.btn{
+    background: #EC6015;
+    color: white;
+    width: 296px;
+    height: 32px;
+    line-height: 24px;
+    border: 0;
+    border-radius: 4px;
+}
+.btnBox{
+    margin-top: -12px;
+}
+input[type=checkbox]{
+    vertical-align: -2px;
+}

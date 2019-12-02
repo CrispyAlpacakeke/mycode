@@ -1,0 +1,81 @@
+body{
+    background: rgb(241, 241, 241);
+}
+/* -------------button1------------- */
+.switch-btn1{
+    display: block;
+    width: 160px;
+    height: 60px;
+    border-radius: 30px;
+    position: relative;
+}
+.switch-btn1 .click{
+    display: none;
+}
+.switch-btn1 .circle{
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: white;
+    transition: .5s;
+    position: absolute;
+    left: 4px;
+    top: 4px;
+}
+.switch-btn1 .btn-bg{
+    width: 160px;
+    height: 60px;
+    background: rgb(221, 226, 228);
+    border-radius: 30px;
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: -1;
+    transition: .5s;
+}
+/* 注意input和.circle  .btn-bg是兄弟关系，不是父子关系 */
+.switch-btn1 .click:checked~.circle{
+    transform: translate(100px);
+}
+.switch-btn1 .click:checked~.btn-bg{
+    background: rgb(129, 216, 238);
+}
+
+/* -------------button2 --------------*/
+.switch-btn2{
+    margin-top: 30px;
+    display: block;
+    width: 150px;
+    height: 60px;
+    border-radius: 30px;
+    position: relative;
+}
+.switch-btn2 .click2{
+    display: none;
+}
+.switch-btn2 .circle2{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: white;
+    box-shadow:0 2px 28px rgba(179, 175, 175, 0.67);
+    transition: .5s;
+}
+.switch-btn2 .btn-bg2{
+    width: 150px;
+    height: 10px;
+    background: rgb(221, 226, 228);
+    border-radius: 5px;
+    position: absolute;
+    top:25px;
+    left:0;
+    z-index: -1;
+    transition: background .5s .2s;
+}
+.switch-btn2 .click2:checked~.circle2{
+    transform: translate(90px);
+    box-shadow:0 2px 28px rgba(110, 194, 219, 0.67);
+}
+.switch-btn2 .click2:checked~.btn-bg2{
+    background: rgb(129, 216, 238);
+}

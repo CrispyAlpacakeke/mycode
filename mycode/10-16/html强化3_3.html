@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table{
+            text-align: center;
+        }
+        table,table td{
+            border: 1px solid black;
+        }
+        .f_strong{
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <!-- 4行5列 -->
+    <table>
+        <tr class="f_strong">
+            <td rowspan="2">名称</td>
+            <td colspan="2">2016-11-22</td>
+            <td rowspan="2">小计</td>
+        </tr>
+        <tr class="f_strong">
+            <td>重量</td>
+            <td>单价</td>
+        </tr>
+        <tr>
+            <td>苹果</td>
+            <td>3公斤</td>
+            <td>5元/公斤</td>
+            <td>15元</td>
+        </tr>
+        <tr>
+            <td>香蕉</td>
+            <td>2公斤</td>
+            <td>6元/公斤</td>
+            <td>12元</td>
+        </tr>
+        <tr>
+            <td colspan="3">总价</td>
+            <td>27元</td>
+        </tr>
+    </table>
+</body>
+</html>

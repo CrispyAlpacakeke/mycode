@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>进制转换</title>
+    <style>
+        .container {
+            width: 500px;
+            padding: 20px;
+            margin: 100px auto;
+            border-radius: 10px;
+            border: 1px solid yellowgreen
+        }
+
+        .input-group {
+            margin-top: 20px;
+        }
+
+        .input-group input {
+            width: 200px;
+            height: 30px;
+            border-radius: 5px;
+            padding: 0 10px;
+            border: 1px solid rgb(114, 114, 114);
+            font-size: 1.1em;
+        }
+
+        .input-group .select {
+            width: 70px;
+            height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="input-group">
+            <label for="in-num">转换数字:</label>
+            <input id="in-num" type="text" placeholder="请输入待转换的数字" >
+            <select class="select" id="in-jz">
+                <option value="0b">2进制</option>
+                <option value="0c">8进制</option>
+                <option value="">10进制</option>
+                <option value="0x">16进制</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label for="out-num">转换结果:</label>
+            <input id="out-num" type="text" disabled placeholder="转换结果" >
+            <select class="select" id="out-jz">
+                    <option value="2">2进制</option>
+                    <option value="8">8进制</option>
+                    <option value="10">10进制</option>
+                    <option value="16">16进制</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <button id="transform">
+                转换
+            </button>
+        </div>
+
+    </div>
+    <script>
+
+        var transformBtn = document.getElementById('transform')
+        var inNumEle = document.getElementById('in-num')
+        var outNumEle = document.getElementById('out-num')
+        var inJzEle = document.getElementById('in-jz')
+        var outJzEle = document.getElementById('out-jz')
+        //1.个转换按钮绑定一个点击事件
+        transformBtn.onclick = function(){
+            //2.获取输入的值
+            var inNum = inNumEle.value
+            //3.获取选择的进制符号
+            var inJz = inJzEle.value
+            //4.把进制符号和输入的值进行拼接
+            var numStr = inJz + inNum
+            //5.把拼接的字符串通过Number()转换成十进制数字
+            var numDec = Number(numStr);
+            //6.获取输出的进制
+            var outJz = outJzEle.value;
+            //7.把十进制数字转换成输出的进制
+            var outNum = (numDec).toString(outJz);
+            //8.把输出的值赋给输出框
+            outNumEle.value = outNum;
+        }
+    </script>
+</body>
+
+</html>

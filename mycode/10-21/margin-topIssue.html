@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .father,.top,.bottom{
+            width: 300px;
+            height: 300px;
+            background: rgb(230, 147, 122);
+            /* overflow: hidden; */
+            /* padding-top: 20px ; */
+        }
+        .son{
+            width: 100px;
+            height: 100px;
+            background: rgb(149, 129, 197);
+            margin-top: 20px;
+        }
+        .wrapper{
+            width: 800px;
+            letter-spacing: -0.3em;
+        }
+        .top{
+            /* margin-bottom: 30px; */
+            display: inline-block;
+            /* float: left; */
+            /* margin-right: -0.3em; */
+        }
+        .bottom{ 
+            /* margin-top: 10px; */
+            display: inline-block;
+            /* float: left; */
+        }
+        .bg{
+            border:4px solid rebeccapurple; 
+            background-image: url('./img/验证码.png') ;
+            width: 80px;
+            height: 60px;
+            padding: 24px;
+            /* background-position: left bottom; */
+            /* background-size: cover; */
+            background-origin: border-box;
+        }
+        .change{
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(90deg, red, blue);
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="son">
+
+        </div>
+    </div>
+    <div class="wrapper">
+        <div class="top"></div>
+        <div class="bottom"></div>
+    </div>
+    <div class="bg"></div>
+    <div class="change"></div>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>函数</title>
+</head>
+<body>
+    <button class="btn">你好</button>
+    <button class="btn">世界</button>
+    <button class="btn">hello</button>
+    <button class="btn">word</button>
+    <script>
+    /*------------------函数声明的提升-----------------*/
+    //变量声明提升，打印结果undefined
+    console.log(a)
+    var a = 1;
+    //代码执行顺序相等于以下三行代码，声明提前，赋值未提前
+    var a;
+    console.log(a);
+    a = 1;
+    //因此使用关键字function声明的函数也和变量声明一样提前，函数调用可以写在函数声明之前
+    f()
+    function f(){
+        console.log('声明提前');
+    }
+    //等同于
+    function f(){
+        console.log('声明提前');
+    }
+    f();
+    //而使用字面量声明的函数不能将函数调用写在函数声明之前
+    f();
+    var f = function(){
+        console.log('声明提前');
+    };
+    //代码实际执行顺序等同于
+    var f
+    f()
+    f = function(){
+        console.log('声明提前');
+    };
+
+    /*------------------函数类型-----------------*/
+    //1、自调用函数
+    //立即执行，可传递参数，写多个自调用函数时必须写分号
+    (function(){console.log('1')})();
+    (function(){console.log('2')})();
+    var btns = document.querySelectorAll('.btn');
+    //立即执行函数的使用：
+    //for循环中定义的i是一个全局变量，在页面加载完成后，for循环已经执行完毕（为每个btns也注册了点击事件，但还未触发），i的值为3
+    //由于i不在点击事件函数的作用域中，所以在点击事件中，i的值永远为3不会改变
+    //因此需要在每一次循环时将i值包裹在局部作用域中，这样点击事件使用的i值就是当前循环的i值
+    //而立即执行函数可以给每一个btns创建一个独立的作用域，并且执行一次后就不再执行，当前局部作用域中的btns不会被下次函数执行时覆盖
+    // for(var i=0; i<btns.length; i++){
+    //     (function(index){
+    //         btns[index].onclick = function(){
+    //             console.log(index)
+    //             console.log(btns[index].innerText)
+    //         }
+    //     })(i)
+    // }
+    //解决方法二：ES6的块级作用域，即用let关键字初始化i
+    // for(let i=0; i<btns.length; i++){
+    //     btns[i].onclick = function(){
+    //         console.log(i)
+    //         console.log(btns[i].innerText)
+    //     }        
+    // }
+    //解决方法三：给index属性赋值
+    for(var i=0; i<btns.length; i++){
+        btns[i].index = i;
+        btns[i].onclick = function(e){
+            console.log(e,this.index)
+            console.log(btns[this.index].innerText)
+        }        
+    }
+
+    //2、递归函数
+    //求阶乘n! = 1*2*3*4...*n
+    //f(1) = 1
+    //f(2) = f(1)*2 = 1*2 =2
+    //f(3) = f(2)*3 = 1*2*3 =6
+    //f(4) = f(3)*4 = 1*2*3*4 =24
+    //...
+    //f(n) = f(n-1)*n =1*2*...*n    
+    //推导出递归方程式为n! = n*(n-1)!
+    function factorial(x) {
+        if (x == 1) {
+            return 1
+        } else {
+            return factorial(x - 1) * x
+        }
+    }
+
+    //求等差数列前n项之和
+    //f(n) = 1+2+3+...+n
+    //f(1) = 1
+    //f(2) = 1+2 = f(1)+2 = 3
+    //f(3) = 1+2+3 = f(2)+3
+    //f(4) = 1+2+3+4 = f(3)+4
+    //...f(n) = f(n-1)+n
+    //推导出递归方程式为sum(n) = sum(n-1)+n
+    function sum(n){
+        if(n==1){
+            return 1
+        }
+        else{
+            return sum(n-1)+n    
+        }
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .show{
+        width: 360px;
+        height: 80px;
+        border: 1px solid rgb(170, 170, 170);
+        margin-top: 20px;
+        padding: 12px;
+    }
+    .box{
+        background: rgb(235, 235, 235);
+        width: 840px;
+        height: 224px;
+        padding: 10px;
+        margin-top: 20px;
+    }
+    .line{
+        margin-top: 18px;
+    }
+    label{
+        display: inline-block;
+        text-align: right;
+        width: 200px;
+        color: #333;
+    }
+    .line input{
+        width: 280px;
+        height: 36px;
+        padding-left: 12px;
+        border: none;
+        border-radius: 5px;
+    }
+    .wrap{
+        margin-top: 36px;
+        margin-left: -54px;
+    }
+    </style>
+</head>
+<body>
+    <input type="text" placeholder="请输入身份证号" class="idCode">
+    <button class="btn"> 显示出生日期</button>
+    <div class="show"></div>
+    <div class="box">
+        <form action="" class="wrap">
+            <div class="line">
+                <label for="">姓名：</label>
+                <input type="text" id="userName">
+                <input type="text" id="reName" readonly>
+            </div>
+            <div class="line">
+                <label for="">电话号码：</label>
+                <input type="text" id="tel">
+                <input type="text" id="reTel" readonly>
+            </div>
+            <div class="line">
+                <label for="">邮箱：</label>
+                <input type="text" id="email">
+                <input type="text" id="reEmail" readonly>
+            </div>
+        </form>        
+    </div>
+    </table>
+    <script>
+    // 1. 将字符串 “hello” 逆序输出为 “olleh”
+    var str1 = 'hello';
+    var str = '';
+    for(var i=str1.length-1;i>=0;i--){
+        str += str1[i];
+    }
+    console.log(str);
+
+    // 2. 删除字符串 “01i13P47h2o39n32e09” 中的所有数字，输出结果
+    var str2 = '01i13P47h2o39n32e09';
+    //方法一：正则表达式
+    // console.log(str2.replace(/\d/g,''));
+    //方法二：遍历
+    for(var i=0;i<str2.length;i++){
+        if(!isNaN(str2[i])){
+            str2 = str2.replace(str2[i],'');
+            //每当删除一个数字，字符串的长度就会-1，因此要从该处下标开始遍历，
+            // 由于for循环会自增1，因此需要在此处自减1，才能保持下一次循环仍然从被删除的数字下标处开始
+            i -=1;  
+        }
+    }
+    console.log(str2);
+    //判断一个字符是否为数字：
+    //1、isNaN()
+    //2、Number(n) == n; ||  parseInt(n) == n
+    //3、n.charCodeAt() >= 48 && n.charCodeAt() <=57
+    //4、numStr = '0123456789' n.indexOf(numStr) != -1
+
+    // 3. 定义一个字符串 ”CHINESE“，将其输出为 “Chinese“
+    var str3 = 'CHINESE';
+    var restLetters = str3.slice(1).toLowerCase();
+    var firstLetters = str3[0].toUpperCase();
+    str3 = firstLetters + restLetters;
+    console.log(str3);
+
+    // 4. 统计 ”warriors” 单词中，“r“字母出现的次数
+    var str4 = 'warriors';
+    var num = 0;
+    for(var i=0;i<str4.length;i++){
+        if(str4[i].indexOf('r') != -1){
+            num++;
+        }
+    }
+    console.log(num);
+
+    // 5. 将字符串 ”-_-” 中的 “-“ 替换成 ”$”
+    //方法一：for循环，我就不写了哈
+    //方法二：while循环
+    var str5 = '-_-';
+    while(str5.includes('-')){
+        str5 = str5.replace('-','$');
+    }
+    console.log(str5);
+    //方法三：转换为数组(数组能改变自己，字符串不能，字符串的不能改变是指字符串变量空间中存储的值
+    // 无法改变，但可以给该空间存储新的字符串值)
+    // var str5 = '-_-+=-___=--=_';
+    // var array5 = str5.split('');
+    // for(var i in array5){
+    //     if(array5[i] == '-'){
+    //         array5[i] = '$';
+    //     }
+    // }
+    // str5 = array5.join('');
+    // console.log(str5);
+    //方法四：拼接
+    // var str5 = '-_-+=-___=--=_';
+    // for(var i=0;i<str5.length;i++){
+    //     if(str5.charAt(i) == '-'){
+    //         var strLeft = str5.slice(0,i);
+    //         var strRight = str5.slice(i+1);
+    //         str5 = strLeft +'$' + strRight;
+    //     }
+    // }
+    // console.log(str5);
+
+    // 6. 将字符串”border-bottom-color” 转换成驼峰命名”borderBottomColor”
+    var str6 = 'border-bottom-color';
+    for(var i=0;i<str6.length;i++){
+        if(str6[i] == '-'){
+            var str = str6[i+1].toUpperCase();
+            var replaStr = '-'+str6[i+1];
+            str6 = str6.replace(replaStr,str);
+        }
+    }
+    console.log(str6);
+
+    // 7. 输入身份证号，点击按钮，显示出生年月，输出格式为："出生年月：xxxx年xx月xx日"
+    //     > 提示：
+    //身份证号7-10为年份，11-14为月日
+    // - 获取元素：document.querySelector(CSS选择器);
+    // - 点击事件：el.onclick = function () { };
+    // - 获取输入框的值：el.value;
+    // - 设置元素显示内容：el.textContent = "";
+    var idCodeElem = document.querySelector('.idCode');
+    var btn = document.querySelector('.btn');
+    var outputElem = document.querySelector('.show');
+    // console.log(outputElem)
+    btn.addEventListener('click',function(){
+        var year = idCodeElem.value.slice(6,10);
+        var month = idCodeElem.value.slice(10,12);
+        var day = idCodeElem.value.slice(12,14);
+        // console.log(year,month,day)
+        var str = `出生年月：${year}年${month}月${day}日`;
+        outputElem.textContent = str;
+        console.log(str)
+    })
+
+    // 8. 用户信息脱敏。写一个表格，包含三个输入字段，姓名，电话码号，邮箱。然后在最后显示用户信息脱名以后的信息。
+    // 要求：
+    // - 姓名第二个字用 * 覆盖
+    // - 电话号码中间四位用 * 覆盖，电话号码输入支持全数字和 - 连接方式，如189 - 1234 - 1234 / 18912341234都合法。
+    // - 邮箱@前面的所有内容* 覆盖，且 * 个数和@前的字符串数量相等
+    // - 在输入信息的前后有空格会被系统默认删除
+
+    // 例如用户输，姓名：李大锤，电话号码：189 - 1234 - 1234，邮箱：pony@qq.com。
+    // 输出，姓名：李 * 锤，电话号码：189 **** 1234，邮箱：****@qq.com
+    var userName = document.getElementById('userName');
+    var reName = document.getElementById('reName');
+    var tel = document.getElementById('tel');
+    var reTel = document.getElementById('reTel');
+    var email = document.getElementById('email');
+    var reEmail = document.getElementById('reEmail');
+    userName.onchange = function(){
+        if(userName.value){
+            userName.value = userName.value.trim();
+            var reNameStr = userName.value[0]+'*'+userName.value.slice(2);
+            reName.value = reNameStr;   
+        }
+        else reName.value = '';
+        console.log(Boolean(userName.value));
+    }
+    tel.onchange = function(){
+        if(tel.value){
+            tel.value = tel.value.trim();
+            while(tel.value.includes('-')){
+                tel.value = tel.value.replace('-','');
+            }
+            var reTelStr = tel.value.slice(0,3)+'****'+tel.value.slice(-4);
+            reTel.value = reTelStr;
+        }
+        else reTel.value = '';
+    }
+    email.onchange = function(){
+        //方法一：拼接
+        if(email.value){
+            email.value = email.value.trim();
+            var idx = email.value.indexOf('@');
+            var reEmailStr = ''
+            for(var i=0;i<idx;i++){
+                reEmailStr += '*';
+            }
+            reEmailStr += email.value.slice(idx);
+            reEmail.value = reEmailStr;
+        }
+        else reEmail.value = '';
+        //方法二：email.value.split('@');
+        // var array = email.value.split('@');
+        // var strLeft = array[0].split('');
+        // var strRight = array[1];
+        // for(var i=0;i<strLeft.length;i++){
+        //     strLeft[i] = '*';
+        // }
+        // reEmail.value = strLeft.join('') +'@'+ strRight;
+    }
+    </script>
+</body>
+</html>

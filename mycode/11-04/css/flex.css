@@ -1,0 +1,19 @@
+.container{
+    display: flex;
+    border: 1px solid black;
+    height: 800px;
+    width: 800px;
+    display: flex;
+    /* flex-wrap: wrap; */
+    align-content: center;
+}
+.item{
+    width: 200px;
+    height: 200px;
+    background: cadetblue;
+    border:1px solid chocolate;
+}
+.item:nth-child(3){
+    align-self: center;
+}
+

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>原生js实现轮播图效果</title>
+    <style>
+        h2{
+            text-align: center;
+            line-height: 72px;
+            letter-spacing: .15em;
+        }
+        .container{
+            width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            
+        }
+        #swipper2 .container{
+            overflow: hidden;
+        }
+        .container .btn{
+            cursor: pointer;
+        }
+        .container .imgs img{
+            width: 100%;
+            opacity: 0;
+            transition: all .5s linear;
+        }
+        .container img.show{
+            opacity: 1;
+        }
+        /* 除开第一张图片，其余都脱离文档流，container的高度由第一张图片撑起，因此高度不为0 */
+        .container img:not(:first-child){
+            position: absolute;
+            top:0;
+            left:0;
+        }
+        .container .btn{
+            width: 45px;
+            height: 30px;
+            position: absolute;
+            top:50%;
+            transform: translateY(-50%);
+            background-size: contain !important;
+        }
+        .container .prev{
+            background: url('./images/arr_left.png') no-repeat center;
+            left: 0px;
+        }
+        .container .next{
+            background: url('./images/arr_right.png') no-repeat center;
+            right: 0px;
+        }
+        .container .idots{
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .container .idot{
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: gray;
+            display: inline-block;
+            margin:0 8px;
+            cursor: pointer;
+        }
+        .container .idot.sel{
+            background: orange;
+            opacity: .7;
+        }
+    </style>
+</head>
+<body>
+    <div id="swipper1">
+        <h2>渐进渐出</h2>
+        <!-- 轮播图容器 -->
+        <div class="container">
+            <!-- 图片显示区域 -->
+            <div class="imgs">
+                <!-- img[src="../images/$$.jpg" alt=""]*6 -->
+                <img src="./images/01.jpg" alt="" class="show">
+                <img src="./images/02.jpg" alt="">
+                <img src="./images/03.jpg" alt="">
+                <img src="./images/04.jpg" alt="">
+                <img src="./images/05.jpg" alt="">
+                <img src="./images/06.jpg" alt="">
+            </div>
+            <!-- 按钮显示区域 -->
+            <div class="btns">
+                <section class="btn prev"></section>
+                <section class="btn next"></section>
+            </div>
+            <!-- 小圆点显示区域 -->
+            <div class="idots">
+                <span class="idot sel"></span>
+                <span class="idot"></span>
+                <span class="idot"></span>
+                <span class="idot"></span>
+                <span class="idot"></span>
+                <span class="idot"></span>
+            </div>
+        </div>        
+    </div>
+    <div id="swipper2">
+            <h2>左右滑动</h2>
+            <!-- 轮播图容器 -->
+            <div class="container">
+                <!-- 图片显示区域 -->
+                <div class="imgs">
+                    <!-- img[src="../images/$$.jpg" alt=""]*6 -->
+                    <img src="./images/01.jpg" alt="" class="show">
+                    <img src="./images/02.jpg" alt="">
+                    <img src="./images/03.jpg" alt="">
+                    <img src="./images/04.jpg" alt="">
+                    <img src="./images/05.jpg" alt="">
+                    <img src="./images/06.jpg" alt="">
+                </div>
+                <!-- 按钮显示区域 -->
+                <div class="btns">
+                    <section class="btn prev"></section>
+                    <section class="btn next"></section>
+                </div>
+                <!-- 小圆点显示区域 -->
+                <div class="idots">
+                    <span class="idot sel"></span>
+                    <span class="idot"></span>
+                    <span class="idot"></span>
+                    <span class="idot"></span>
+                    <span class="idot"></span>
+                    <span class="idot"></span>
+                </div>
+            </div>        
+        </div>
+    <script src="./js/index.js"></script>
+</body>
+</html>

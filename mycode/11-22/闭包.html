@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //闭包指能够读取其他函数内部变量的函数
+    //如下，func_2就是闭包
+    //因此可以简单理解为 定义在一个函数内部的子函数就是闭包
+    function func_1(){
+        var str = 'func_1内的变量';
+        function func_2(){
+            return str
+        }
+        return func_2;
+    };
+    console.log(func_1()());
+    //闭包可简写为
+    function func_1(){
+        var str = 'func_1内的变量';
+        return function(){
+            return str
+        }
+    };
+    var func = func_1();
+    console.log(func());
+
+    </script>
+</body>
+</html>

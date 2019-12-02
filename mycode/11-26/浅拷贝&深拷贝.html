@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //浅拷贝--->只拷贝地址
+        var str = '脆皮羊驼怪'
+        str.slice(0,1);
+
+        //对于简单的数组或者对象可以用遍历的方式进行深拷贝
+        var arr = [1,2,3]
+        var arrCopy = []
+        arr.forEach(function(el,idx){
+            arrCopy[idx] = el
+        });
+        //但当是多维数组或者对象中嵌套数组时，遍历深拷贝只对是基本数据类型的元素有效
+        //如arr = [[3,4],2,[5,6]]，遍历后只有2进行了深拷贝
+        //因此深拷贝有一下三种写法
+        
+        //1、深拷贝的简单写法---->Json
+        function jsonDeepCopy(obj){
+            //把对象转化为新的字符串
+            var str = JSON.stringify(obj);
+            //把字符串解析为对象
+            return JSON.parse(str);
+        }
+        //2、复杂的深拷贝写法----->递归
+        function deepCopy(parent, child) {
+            child = child || {};
+            for (var key in parent) {
+                //parent元素为对象类型
+                if (typeof parent[key] === 'object') {
+                    //    
+                    child[key] = (parent[key].constructor === Array) ? [] : {};
+                    // 递归调用
+                    deepCopy(parent[key], child[key]);
+                } else {
+                    //parent元素为基本数据类型，直接赋值
+                    child[key] = parent[key];
+                }
+            }
+            return child;
+        }
+
+        //ES6合并对象方式方式；Object.assign()
+        let o1 = {hello:'席勒'}
+        let o2 = {hi:'兰德斯噶'}
+        //将o2合并到o1，返回合并后的o1，o2不变
+        var o3 = Object.assign(o1,o2);
+        console.log(o1,o2,o3)
+        //3、深拷贝的ES6写法------>Object.assign()
+        function assignDeepCopy(obj){
+            return Object.assign({},obj);
+        }
+        let lucy = {name:'lucy',age:34};
+        let lucyCopy = assignDeepCopy(lucy);
+
+        //推荐Json和assign的写法
+    </script>
+</body>
+</html>

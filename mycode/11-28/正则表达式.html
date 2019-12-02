@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 正则表达式的创建
+        //字面量
+        var r1 = /CHINA/;
+        //构造函数
+        var r2 = new RegExp('CHINA');
+        //正则表达式实际是对象，具有属性和方法
+        //属性：1、与修饰符有关,返回布尔值，表示是否设置了对应的修饰符
+        r1 = /CHINA/igm;
+        //是否设置忽略大小写的 i 修饰符
+        r1.ignoreCase 
+        //是否设置可全局匹配的 g 修饰符
+        r1.global
+        //是否设置可多行模式匹配的 g 修饰符
+        r1.multiline
+        //2、与修饰符无关
+        var r3 = /dfea/g
+        //返回下一次开始搜索的位置，必须设置修饰符g
+        r3.lastIndex
+        //返回正则表达式的字符串形式
+        r1.source
+
+        //方法
+        //test()当前模式能否匹配参数字符串，返回布尔值
+        var str = 'afrajiagt'
+        var reg = /a/g
+        //正则表达式带有g，则每一次test()从上一次结束位置开始向后匹配
+        reg.lastIndex //0
+        reg.test(str) //true
+        reg.lastIndex //1
+        reg.test(str) //true
+        reg.lastIndex //4
+        reg.test(str) //true
+        reg.lastIndex //7
+        reg.test(str) //false
+        //exec()
+
+        //与正则表达式相关的字符串方法
+    </script>
+</body>
+</html>

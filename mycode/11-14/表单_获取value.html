@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="POST">
+        <div>
+            <label for="user">用户名</label>
+            <input type="text" id="user" placeholder="请输入用户名" value="Abc">
+        </div>
+        <div>
+            <label for="pwd">密码</label>
+            <input type="password" id="pwd">
+        </div>
+        <div>
+            <label for="gender">性别</label>
+            <label for="male">男</label>
+            <input type="radio" id="male" name="gender" value="男">
+            <label for="female">女</label>
+            <input type="radio" id="female" name="gender" value="女">
+
+        </div>
+    </form>
+    <script>
+        var userIpt = document.querySelector('#user');
+        var userName = userIpt.value;
+        console.log(userName);
+        userName = '羊驼';
+        // 打印被选中的元素的value，选中单选项后在网页控制台中执行该函数即可打印
+        function ptintf(){
+            var gender = document.querySelector('input[name=gender]:checked'); //不要方，单引号里面的其实就是css属性选择器的代码
+            console.log(gender.value);
+        }
+    </script>
+</body>
+</html>

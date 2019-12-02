@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 600px;
+            height: 200px;
+            /* background: burlywood; */
+            margin: 20px auto;
+            text-align: center;
+        }
+        #box{
+            width: 100px;
+            height: 100px;
+            background: black;
+            display: block;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input type="button" value="变宽">
+        <input type="button" value="变高">
+        <input type="button" value="变色">
+        <input type="button" value="隐藏">
+        <input type="button" value="重置">
+        <div id="box"></div>
+    </div>
+    <script>
+        // var changeStyle = function(elem,){
+            
+        // }
+        window.onload = function(){
+            var oDiv = document.getElementById('box');
+            var oBtn = document.getElementsByTagName('input');
+            var oArr = ['width','height','background','display','display']
+            var oVal = ['200px','200px','yellow','none','block'];
+            for(var i=0;i<oBtn.length;i++){
+                oBtn[i].index = i;
+                oBtn[i].addEventListener('click',function(){
+                    // this.index == oBtn.length - 1判断此时的下标是否为最后一个按钮
+                    //是最后一个按钮则返回oDiv.style.cssText = ''（写在标签上的内联样式），实现重置效果
+                    // == 优先级高于 &&
+                    console.log(typeof oArr[this.index])
+                    this.index == oBtn.length - 1 && (oDiv.style.cssText = '');
+                    oDiv.style[oArr[this.index]] = oVal[this.index]
+                })
+            }
+        }
+    </script>
+</body>
+</html>

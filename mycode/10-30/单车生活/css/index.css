@@ -1,0 +1,153 @@
+/* ----------公共样式 ------------------*/
+.clearfix::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.container{
+    width: 1180px;
+    margin: 0 auto;
+}
+/* ---------------header----------------- */
+header{
+    height: 70px;
+    background: #353535;
+}
+header .logo{
+    float: left;
+    margin-top: 16px;
+
+}
+header .nav{
+    float: left;
+    margin-left: 152px;
+}
+.nav li{
+    list-style:none;
+    float: left;
+    line-height: 70px;
+}
+.nav li a{
+    color: #BDB9B2;
+    text-decoration: none;
+    padding: 24px 15px;
+    font-weight: 700;
+}
+.search{
+    float: right;
+    line-height:70px;
+}
+.search input{
+    background: #000000;
+    border: 1px solid #5D5D5D;
+    border-right: none;
+    height: 36px;
+    width: 200px;
+    color:#BDB9B2 ;
+    text-indent: 1em;
+    vertical-align: middle;
+    box-sizing: border-box;
+}
+.search .btn{
+    background: #01A2E8;
+    border: none;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    margin-left: -5px;   
+    vertical-align: middle;
+    text-align: center;
+}
+.search .btn i{
+    margin-left: 2px;
+}
+.fa-search{
+    color: white;   
+    font-size: 16px;
+}
+/* ---------------main--------------- */
+main{
+    background: #DEDEDE;
+}
+main .content{
+    padding: 52px 60px 24px;
+    box-sizing:border-box ;
+}
+.box{
+    background: white;
+    box-sizing: border-box;
+    width: 337px;
+    height: 295px;
+    float: left;
+    /* text-align: center; */
+    padding: 10px 10px 0;
+    margin: 0px 24px 24px 0px;
+}
+.box img{
+    width: 317px;
+}
+.box:nth-child(3n){
+    margin-right: 0px;
+}
+.box .date{
+    color: #D6D7D9;
+    font-size: 12px;
+    margin: 8px 0px;
+}
+.box .title{
+    color: #7C7972;
+    line-height: 1.5;
+}
+.pagination{
+    margin: 20px 0;
+}
+.pagination ul{
+    float: right;
+}
+.pagination ul li{
+    float: left;
+    margin-right: 12px;    
+}
+.pagination ul li a{    
+    border: 1px solid #D0CED0;
+    text-decoration: none;
+    padding: 8px 12px;    
+    color:#383732;
+    font-size: 12px;
+}
+.pagination ul li a:hover{
+    color: white;
+    background: #383732;
+    font-weight: 700;
+}
+.pagination p{
+    font-size: 12px;
+    color: #6C6A64;
+    float: right;
+    line-height: 18px;
+}
+/* ----------footer--------- */
+footer{
+    height: 108px;
+    background: #222222;
+    font-size: 12px;
+}
+.foot-nav{
+    box-sizing: border-box;
+    padding-top: 34px;
+    margin-bottom: 18px;
+}
+.foot-nav li{
+    float: left;
+    margin-right: 28px;
+}
+.foot-nav li a{
+    text-decoration: none;
+    color: #2BABE8;
+}
+.foot .copyright{
+    color: #5C5B59;
+}
+.foot .copyright span{
+    color:rgb(175, 173, 167) ;
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //for in
+    //for循环
+    //for of
+    //forEach()方法
+    // var str = ['1','w','2','y']
+    // str.forEach(function(item, index, arr) {
+    //     console.log(`当前遍历的元素${item}`);
+    //     console.log(`当前遍历的下标${index}`);
+    //     console.log(`当前遍历的数组${arr}`);
+    // });
+    //map()方法，不会改变原来的数组
+    //str.map(function(item, index, arr) {
+    //     console.log(`item:${item}, index:${index}, arr: ${arr}`);
+    // });
+    //filter()过滤元素
+
+    var str = [1,2,5,7,12,89,44];
+    var sum = 0;
+    console.log('-------forEach 方法遍历')
+    //forEach
+    str.forEach(function(item,index,arr){
+        sum += item;
+        console.log(item);
+    });
+    console.log(`sum=${sum}`);
+    console.log('-------for in 方法遍历')
+    //for in
+    sum = 0;
+    for(var i in str){
+        sum += str[i];
+        console.log(str[i]);
+    }
+    console.log(`sum=${sum}`);
+    console.log('-------for of 方法遍历')
+    //for of
+    sum = 0;
+    for(var item of str){
+        sum += item;
+        console.log(item);
+    }
+    console.log(`sum=${sum}`);
+    //map修改数组元素
+    console.log('-------map修改数组元素')
+    str = str.map(function(item,index,arr){
+        return `*${item}`;
+    })
+    console.log(str);
+
+    //生成一个新数组，新数组每一个元素是原数组每个元素的平方
+    //map和forEach的区别：能用forEach就意味着能用map，但map可以设置返回值，将返回值组成新数组返回
+    var arr1 = [3,2,5,6]
+    // var arr2 = [];
+    // arr1.forEach(function(item){
+    //     item = item**2;
+    //     arr2.push(item);
+    // })
+    var arr2 = arr1.map(function(item){
+        return item**2;
+    })
+    console.log(arr2);
+
+    var res = arr1.filter(function(item){
+        //返回为true则保留对象
+        return item%2 == 0;
+    })
+    console.log(res)
+
+    //filter()过滤元素，如果没有符合条件的元素则返回[]
+    var users = [
+        {name:'文爱菊',id:1},
+        {name:'张爱莲',id:2},
+        {name:'杨中海',id:3},
+        {name:'张小鸟',id:4},
+    ]
+    var newUser = []
+    newUser = users.filter(function(item){
+        return item.id > 2;
+    })
+    console.log(newUser)
+    </script>
+</body>
+</html>

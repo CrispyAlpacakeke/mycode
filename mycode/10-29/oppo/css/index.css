@@ -1,0 +1,188 @@
+/* 版心 */
+.middle{
+    width: 80%;
+    margin: 0 auto;
+}
+/* 公共样式 */
+.left{
+    float: left;
+}
+.right{
+    float: right;
+}
+.clearfix:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+
+/* --------------header--------------- */
+.headBar{
+    height: 60px;
+    float: left;
+}
+header .head{
+    width: 1200px;
+    height: 60px;
+    line-height: 60px;
+    margin: 0 auto;
+}
+.logo{
+    margin-right: 120px;
+    padding: 0 10px;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.menu li{
+    float: left;
+    font-size: 14px;
+}
+.menu li a{
+    text-decoration: none;
+    color: #333;
+    padding: 20px 25px;
+
+}
+.cart a{
+    text-decoration: none;
+    color: #333;    
+    padding: 20px;
+}
+.banner a{
+    display: block;
+    width: 100%;
+    height: 828px;
+}
+header{
+    background-image: url('../img/banner.webp');
+    background-position: center;
+    background-size:auto 100%;
+    background-repeat: no-repeat;
+}
+/* -------------main------------ */
+main{
+    width: 100%;
+    height: 100%;
+    margin-top: 0;
+    position: relative;
+}
+section{
+    color: white;
+    width: 950px;
+    height: auto;
+    float: left;
+    overflow: hidden;
+    margin-top: 3px;
+}
+.link{
+    position: relative;
+    display: block;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: white;
+}
+section .title{
+    position: absolute;
+    display: block;
+    /* 或者width:100% */
+    left: 50%;
+    transform: translate(-50%,0);
+    text-align: center;
+    padding: 40px 0 0 0;
+    top: 0;
+}
+.title h1{
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.73;
+}
+.title h2{
+    margin: 5px 0 0 0;
+    font-size: 15px;
+    line-height: 1.73;
+    font-weight: 400;
+}
+section img{
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+}
+/* ---------footer-------- */
+footer{
+    text-align: left;
+    padding: 60px;
+}
+.wrapper{
+    width: 1200px;
+    margin: 0 auto;
+}
+.wrapper .left{
+    width: 62%;
+    font-size: 13px;
+    color: #333;
+}
+.wrapper .top .left dl{
+    float: left;
+    margin-right: 10px;
+    display: block;
+    color: #666;
+}
+.wrapper .top .left dl dt{
+    margin-bottom: 10px;
+}
+.wrapper .top .left dl dd{
+    margin-right: 2em;
+    line-height: 1;
+    padding: 8px 0;
+}
+.wrapper .top .right .service{
+    height: 53px;
+    line-height: 53px;
+    border-radius: 26.5px;
+    background: #666;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.wrapper .top .right .service a{
+    text-decoration: none;    
+    color: white;
+    font-size: 14px;
+    padding: 12px 54px;
+}
+.wrapper .top .right h2{
+    text-align: right;
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 12px;
+}
+.wrapper .top .right p{
+    text-align: right;
+    font-size: 14px;
+    color: #828282;
+}
+.wrapper .copyright{
+    color: #98979a;
+    border-top: 1px solid #ebebeb;
+    margin-top: 72px;
+    padding-top: 24px;
+    width: 1200px;
+}
+.wrapper .copyright a{
+    text-decoration: none;
+    color: #98979a;
+}
+.wrapper .copyright .cp-content{
+    text-align: left;
+    font-size: 12px;
+    line-height: 25px;
+    float: left;
+}
+.wrapper .copyright .sns-content{
+    text-align: right;
+    font-size: 12px;
+    line-height: 25px;
+    float: right;
+}

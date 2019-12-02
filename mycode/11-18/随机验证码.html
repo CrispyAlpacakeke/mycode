@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //随机输出四个字母作为验证码
+    //tips:根据ASCII码范围，进行随机
+    //大写字母范围65-90，小写字母范围97-122，0-9数字范围48-57
+    //把随机数转换为字符串，通过循环拼接字符串
+    function randomNum(a,b){
+        return Math.round(Math.random()*(b-a))+a;
+    }
+    function yanzhenma(){
+        var yzm = '';
+        console.log(yzm);
+        for(var i=0;i<4;i++){
+            //大小写总共52个字母,0-9有10个数字
+            var n = randomNum(1,62);
+            var oriStr = '';
+            var numCode;
+            //1<=n<=26时，65<=n+64<=90
+            if(n<=26){
+                numCode = n+64;
+            }
+            if(n>=27 && n<=52){
+                numCode = n+70;
+            }
+            //53<=n<=62
+            else{
+                numCode = n-5;
+            }
+            yzm += String.fromCharCode(numCode);
+        }
+        console.log('验证码：'+yzm); 
+    }
+    yanzhenma();
+</script>
+</html>

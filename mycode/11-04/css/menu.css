@@ -1,0 +1,50 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+nav{
+    background: #333;
+    height: 60px;
+}
+nav ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+nav ul a{
+    text-decoration: none;
+}
+/* 一级菜单 */
+.menu-box>li{
+    float: left;
+    position: relative;
+}
+.menu-box>li a{
+    color: rgb(218, 216, 216);
+    font-size: 18px;
+    display: block;
+    height: 60px;
+    width: 120px;
+    text-align: center;
+    line-height: 60px;
+    background: #333;
+}
+.menu-box li:hover>a{
+    background: rgb(240, 144, 0);
+    color: white;
+}
+
+/* 二级菜单 */
+.submenu{
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+}
+.submenu>li a{
+    font-size: 14px;
+    color: rgb(180, 178, 178);
+}
+.menu-box>li:hover .submenu{
+    display: block;
+}

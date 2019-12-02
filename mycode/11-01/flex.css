@@ -1,0 +1,22 @@
+.box{
+    width: 600px;
+    height: 600px;
+    background: lightblue;
+    display: flex;
+    flex-flow: row wrap;
+    /* align-content: center; */
+    justify-content: center;
+
+}
+.item{
+    width: 100px;
+    height: 100px;
+    background: lightgoldenrodyellow;
+    float: right;
+    text-align: center;
+    line-height: 100px;
+    /* margin-right: 24px; */
+}
+.item:nth-child(3){
+    align-self: stretch;
+}

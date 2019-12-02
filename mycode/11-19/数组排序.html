@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //------------------------数组排序-----------------------
+    //使用sort() 根据ASCII码升序排序，返回排序后的数组
+    //sort()的具体解释参考mdn
+    var arr = [1, "b", 3, 2, "A", "a", "B"];
+    arr.sort();
+    console.log(arr);
+    //反向排列
+    arr.reverse();
+    console.log(arr)
+    //sort()参数
+    var arr1 = [2,5,8,1,0,3]
+    arr1.sort(function(a,b){
+        //升序
+        return a-b;
+        //降序
+        // return b-a;
+    })
+    console.log(arr1)
+    //对象排序
+    //二维数组排序
+    var arr2 = [
+        ['文爱菊',23],
+        ['张爱莲',24],
+        ['杨中海',18]
+    ]
+    console.log(arr2[0][1]);
+    arr2.sort(function(a,b){
+        return a[1] - b[1];
+    })
+
+    //字符串排序
+    //a.localeCompare(b)
+    var  citys = ["上海","北京","杭州", "成都"];
+    citys.sort(function(a,b){
+        return b.localeCompare(a,'zh-ch');
+    })
+    console.log(citys);
+    </script>
+</body>
+</html>

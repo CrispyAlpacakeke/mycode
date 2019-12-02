@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // 数组 array = ['1', '2', '3']
+    // 在头部增加一个字符串 'x', 尾部增加一个字符串 'y'
+    // 然后再删除头部和尾部增加的元素。
+    // 在 元素'1'到 '2'插入 'k', 'j'
+    var array = ['1', '2', '3']
+    array.push('y')
+    array.unshift('x');
+    console.log(array);
+    array.pop();
+    array.shift();
+    console.log(array);
+    array.splice(1,0,'k','j');
+    console.log(array);
+    </script>
+</body>
+</html>

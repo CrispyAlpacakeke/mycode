@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <!-- 1. 课堂练习
+        创建一个网页，网页中至少包含6个标签，每个标签都设置class与id或者name等,
+        然后通过以下几种方式获取到不同网页标签元素，每个标签采取一种不同的方式获取【练习标签元素的获取方式】
+        a. 通过ID获取
+        b. 通过class获取
+        c. 通过TagName获取
+        d. 通过name属性获取
+        e. 通过父标签获取
+        f. 通过querySelectAll获取 -->
+        <div class="box" id="box1">
+            <label for="" id="yhm">输入用户名</label><input type="text" name="userName">
+        </div>
+        <div class="box" id="box2">
+            <label for="" id="code">输入密码</label><input type="password" name="psd">
+        </div>
+        <p id="name">成都睿峰软件职业技能培训中心</p>
+        <ul class="departments">
+            <li>教学部</li>
+            <li>教务部</li>
+            <li>市场部</li>
+            <li>咨询部</li>
+            <li>行政部</li>
+            <li>财务部</li>
+        </ul>
+        <p name="address">成都市高新区天府软件园B区5座1层</p>
+        <script>
+            // let box = document.getElementsByClassName('box');
+            // let label = box[0].getElementsByTagName('label');
+            let box = document.querySelectorAll('.box');
+            let label = box[1].querySelectorAll('label');
+            let list = document.querySelector('.departments');
+            console.log(list.previousElementSibling);
+            console.log(list.nextElementSibling);
+            console.log(list.parentElement);
+            console.log(list.childNodes);
+            console.log(list.firstElementChild);
+            console.log(list.lastElementChild);
+            let a = document.createElement('myEmbed');
+        </script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .wrap{
+            width: 400px;
+            height: 200px;
+            margin: 0 auto;
+            position: relative;
+            padding: 20px;
+        }
+        .btn{
+            display: block;
+            margin: 0 auto;
+            margin-top: 10px;
+        }
+        .boxWrap{
+            clear: both;
+            height: 100px;
+            width: 320px;
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            background: black;
+            float: left;
+            margin-left: 10px;
+        }
+        .box:first-child{
+            margin-left: 0px;
+        }
+        .active{
+            background: red !important;
+        }
+    </style>
+</head>
+    <div class="wrap">
+        <button class="btn">点击将div变红</button>
+        <div class="boxWrap">
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>            
+        </div>
+    </div>
+<body>
+    <script>
+    //点击将所有div变红
+    var btnEle = document.querySelector('.btn');
+    //方法一：
+    //querySelectorAll获取的是NodeList集合，虽然不是数组，可用forEach，for循环，for in ,for of,无法用map
+    //而getElement方法获取的是HtmlCollection集合，可用for循环，for in ,for of,无法用forEach，map
+    //HtmlCollection转数组的方法
+    //1、Array.from() 方法从一个类似数组或可迭代对象创建一个新的，浅拷贝的数组实例
+    //2、拼接concat() | [...[]] 
+    //3、call()
+    // var boxEle = document.getElementsByClassName('box');
+    // var boxEleArr = Array.from(boxEle);
+    // var boxEleArr = [...boxEle];
+    // var boxEleArr = [].concat(boxEle);
+    // btnEle.onclick = function(){
+    //     boxEleArr.forEach(function(item){
+    //         if(!item.style.background){
+    //             item.style.background = 'red';
+    //         }
+    //         else{
+    //             item.style.background = '';
+    //         }
+    //     })
+    // }    
+
+    //方法二：
+    //不推荐直接更改style而是通过修改class的方式改变元素的样式
+    //样式应该是用css控制，尽量避免用js控制，js最多增删样式，方便程序运维
+    //当style样式多的时候，用style就需要些一长串cssText，不如class控制便捷
+    //有便于程序解耦
+    var boxEle = document.querySelectorAll('.box');
+    btnEle.addEventListener('click',function(){
+        boxEle.forEach(function(el){
+            if (el.classList.contains('active')) {
+                el.classList.remove('active')
+            } else {
+                el.classList.add('active')
+            }
+        })
+    })
+    </script>
+</body>
+</html>

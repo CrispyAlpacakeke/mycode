@@ -1,0 +1,120 @@
+/* 公共样式 */
+body *{
+    margin: 0;
+    padding: 0;
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+/* 页面一 */
+.imgList{
+    padding: 10px;
+    width: 690px;
+    height: 272px;
+    border: 1px solid gray;
+    margin: 20px auto;
+    display: flex;
+    flex-flow: row wrap;
+    align-content: space-between;
+    justify-content: space-between;
+}
+.imgList .item{
+    width: 128px;
+    height: 128px;
+    border: 1px solid gray;
+    opacity: .5;
+    cursor: crosshair;
+    transition: .2s;
+}
+.item:hover{
+    opacity: 1;
+}
+.clearfix::after{
+    content: '';
+    clear: both;
+    display: block;
+}
+/* 页面二 */
+.imgBox{
+    background: rgb(219, 219, 219);
+    border:5px solid rgb(219, 219, 219);
+    border-radius: 5px;
+    padding: 3px 0 0 3px;
+    width: 212px;
+    overflow: hidden;
+    margin: 60px auto;
+}
+.imgBox li{
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    float: left;
+    margin: 0 3px 3px 0;
+} 
+.imgBox .first,.load,.imgBox .first img{
+    width: 156px;
+    height: 156px;
+}
+.imgBox .first{
+    background: lightblue;
+    position: relative;
+}
+.load{
+    position: absolute;
+    top:0;
+    left:0;
+    background: url(./img/loading.gif) center center no-repeat;
+    opacity: .5;
+    display: none;
+}
+/* 星级评分系统 */
+.mark{
+    position: relative;
+    color: #666;
+    font-size: 12px;
+}
+.mark>span{
+    float: left;
+    color: #666;
+    font-size: 12px;
+    height: 19px;
+    line-height: 19px;
+}
+.mark .star{
+    float: left;
+    margin-left: 10px;
+}
+.mark .star li{
+    display: inline-block;
+    width: 24px;
+    height: 19px;
+    line-height: 19px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+.star li::before{
+    content: url(./img/star.png);
+}
+.star li:hover::before{
+    content: url(./img/star.png);
+    transform: translateY(-28px);
+    position: absolute;
+}
+.mark p{
+    background: url(/img/icon.gif) no-repeat;
+    width: 159px;
+    height: 60px;
+    border: 1px solid black;
+    position: absolute;
+    top:28px;
+    left:24px;
+    padding: 7px 10px 0;
+}
+.mark p>span{
+    color: #f60;
+    display: block;
+}
